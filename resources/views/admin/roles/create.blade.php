@@ -17,7 +17,7 @@
             <form method="POST" action="{{ route('roles-store') }}">
                     @csrf
                     <div class="form-group">
-                        <label for="name">Display name:</label>
+                        <label for="name">Naziv</label>
                         <input type="text" class="form-control" name="display_name" value="{{ old('display_name') }}">
 
                         @error('display_name')
@@ -25,14 +25,14 @@
                         @enderror
                     </div>
                     <div class="form-group">
-                        <label for="description">Description:</label>
+                        <label for="description">Opis:</label>
                         <textarea class="form-control" name="description" rows="3"></textarea>
 
                         @error('description')
                         <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
                     </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-primary">Pošalji</button>
                 </form>
             </div>
         </div>

@@ -43,7 +43,7 @@
                     </dd>
 
                     <dt class="col-sm-2 text-right">
-                        Name:
+                        Ime:
                     </dt>
                     <dd class="col-sm-10">
                         {{ $user->name }}
@@ -57,14 +57,14 @@
                     </dd>
 
                     <dt class="col-sm-2 text-right">
-                        User ID:
+                        Korisnički ID:
                     </dt>
                     <dd class="col-sm-10">
                         {{ $user->name }}
                     </dd>
 
                     <dt class="col-sm-2 text-right">
-                        Roles
+                        Uloge:
                     </dt>
                     <dd class="col-sm-10">
                         <ul>
@@ -75,25 +75,25 @@
                     </dd>
 
                     <dt class="col-sm-2 text-right">
-                        Created at:
+                        Stvoren:
                     </dt>
                     <dd class="col-sm-10">
-                        {{ $user->created_at }}
+                        {{ $user->created_at->format('d-m-Y H:i:s') }}
                     </dd>
 
                     <dt class="col-sm-2 text-right">
-                        Updated at:
+                        Uređen:
                     </dt>
                     <dd class="col-sm-10">
-                        {{ $user->updated_at }}
+                        {{ $user->updated_at->format('d-m-Y H:i:s') }}
                     </dd>
 
                     @if($user->deleted_at)
                     <dt class="col-sm-2 text-right">
-                        Deleted at:
+                        Obrisan:
                     </dt>
                     <dd class="col-sm-10">
-                        {{ $user->deleted_at ? $user->deleted_at : '' }}
+                        {{ $user->deleted_at ? $user->deleted_at->format('d-m-Y H:i:s') : '' }}
                     </dd>
                     @endif
 

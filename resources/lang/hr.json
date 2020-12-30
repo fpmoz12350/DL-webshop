@@ -1,0 +1,12 @@
+{
+    "Name": "Ime i prezime",
+    "E-Mail Address": "E-mail adresa",
+    "Password": "Lozinka",
+    "Confirm Password": "Potvrdite lozinku",
+    "Login": "Prijava",
+    "Register": "Registracija",
+    "Remember Me": "Zapamti me",
+    "Forgot Your Password?": "Zaboravili ste lozinku?",
+    "Reset Password": "Ponovno postavljanje lozinke"
+
+}

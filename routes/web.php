@@ -4,6 +4,8 @@ use App\Models\User;
 use App\Models\Role;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\RoleController;
+use App\Http\Controllers\PermissionController;
+use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -42,5 +44,21 @@ Route::get('/role/show/{id}', [RoleController::class, 'show'])->middleware('auth
 Route::get('/role/edit/{id}', [RoleController::class, 'edit'])->middleware('auth')->name('roles-edit');
 Route::patch('/role/update/{role}', [RoleController::class, 'update'])->middleware('auth')->name('roles-update');
 Route::delete('/role/destroy/{role}', [RoleController::class, 'destroy'])->middleware('auth')->name('roles-destroy');
+
+Route::get('/permissions', [PermissionController::class, 'index'])->middleware('auth')->name('permissions-index');
+Route::get('/permission/create', [PermissionController::class, 'create'])->middleware('auth')->name('permissions-create');
+Route::post('/permission/store', [PermissionController::class, 'store'])->middleware('auth')->name('permissions-store');
+Route::get('/permission/show/{id}', [PermissionController::class, 'show'])->middleware('auth')->name('permissions-show');
+Route::get('/permission/edit/{id}', [PermissionController::class, 'edit'])->middleware('auth')->name('permissions-edit');
+Route::patch('/permission/update/{permission}', [PermissionController::class, 'update'])->middleware('auth')->name('permissions-update');
+Route::delete('/permission/destroy/{permission}', [PermissionController::class, 'destroy'])->middleware('auth')->name('permissions-destroy');
+
+Route::get('/products', [ProductController::class, 'index'])->middleware('auth')->name('products-index');
+Route::get('/product/create', [ProductController::class, 'create'])->middleware('auth')->name('products-create');
+Route::post('/product/store', [ProductController::class, 'store'])->middleware('auth')->name('products-store');
+Route::get('/product/show/{id}', [ProductController::class, 'show'])->middleware('auth')->name('products-show');
+Route::get('/product/edit/{id}', [ProductController::class, 'edit'])->middleware('auth')->name('products-edit');
+Route::patch('/product/update/{product}', [ProductController::class, 'update'])->middleware('auth')->name('products-update');
+Route::delete('/product/destroy/{product}', [ProductController::class, 'destroy'])->middleware('auth')->name('products-destroy');
 
 

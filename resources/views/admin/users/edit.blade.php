@@ -8,7 +8,7 @@
 
         <div class="card shadow mb-4">
             <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                <h6 class="m-0 font-weight-bold text-primary">User edit :: {{ $user->name }}</h6>
+                <h6 class="m-0 font-weight-bold text-primary">Uređivanje korisnika :: {{ $user->name }}</h6>
                 <div class="text-right"><a class="btn btn-info" href="{{ route('users-index') }}">
                         <i class="fas fa-times"></i>
                     </a>
@@ -19,7 +19,7 @@
                     @csrf
                     @method('PATCH')
                     <div class="form-group">
-                        <label for="display_name">Name:</label>
+                        <label for="display_name">Ime:</label>
                         <input type="text" class="form-control" name="name" value="{{ $user->name }}">
 
                         @error('name')
@@ -44,7 +44,7 @@
                         </div>
                         @endforeach
                     </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-primary">Pošalji</button>
                 </form>
             </div>
         </div>

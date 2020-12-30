@@ -6,10 +6,10 @@
         <div class="card shadow mb-4">
             <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                 <h6 class="m-0 font-weight-bold text-primary">
-                    Prikaz role :: {{ $role->display_name }}
+                    Prikaz role :: {{ $permission->display_name }}
                 </h6>
                 <div class="text-right">
-                    <a class="btn btn-info" href="{{ route('roles-index') }}">
+                    <a class="btn btn-info" href="{{ route('permissions-index') }}">
                         <i class="fas fa-times">
                         </i>
                     </a>
@@ -18,7 +18,7 @@
             <div class="card-body">
                 <dl class="row">
                     <dt class="col-sm-2">
-                        <form action="{{ route('roles-destroy', $role->id) }}" method="POST">
+                        <form action="{{ route('permissions-destroy', $permission->id) }}" method="POST">
                             @csrf
                             @method('DELETE')
                             <button class="btn btn-danger">
@@ -28,7 +28,7 @@
                         </form>
                     </dt>
                     <dd class="col-sm-10 text-right">
-                        <a class="btn btn-primary" href="{{ route('roles-edit', $role->id) }}">
+                        <a class="btn btn-primary" href="{{ route('permissions-edit', $permission->id) }}">
                             <i class="fas fa-edit">
                             </i>
                         </a>
@@ -38,55 +38,55 @@
                         ID:
                     </dt>
                     <dd class="col-sm-10">
-                        {{ $role->id }}
+                        {{ $permission->id }}
                     </dd>
 
                     <dt class="col-sm-2 text-right">
                         Naziv za prikaz:
                     </dt>
                     <dd class="col-sm-10">
-                        {{ $role->display_name }}
+                        {{ $permission->display_name }}
                     </dd>
 
                     <dt class="col-sm-2 text-right">
                         Naziv:
                     </dt>
                     <dd class="col-sm-10">
-                        {{ $role->name }}
+                        {{ $permission->name }}
                     </dd>
 
                     <dt class="col-sm-2 text-right">
                         Opis:
                     </dt>
                     <dd class="col-sm-10">
-                        {!! nl2br($role->description) !!}
+                        {!! nl2br($permission->description) !!}
                     </dd>
 
                     <dt class="col-sm-2 text-right">
-                        Stvorena:
+                        Stvoreno:
                     </dt>
                     <dd class="col-sm-10">
-                        {{ $role->created_at->format('d-m-Y H:i:s') }}
+                        {{ $permission->created_at->format('d-m-Y H:i:s') }}
                     </dd>
 
                     <dt class="col-sm-2 text-right">
-                        Uređena:
+                        Uređeno:
                     </dt>
                     <dd class="col-sm-10">
-                        {{ $role->updated_at->format('d-m-Y H:i:s') }}
+                        {{ $permission->updated_at->format('d-m-Y H:i:s') }}
                     </dd>
 
-                    @if($role->deleted_at)
+                    @if($permission->deleted_at)
                     <dt class="col-sm-2 text-right">
-                        Obrisana:
+                        Obrisano:
                     </dt>
                     <dd class="col-sm-10">
-                        {{ $role->deleted_at ? $role->deleted_at->format('d-m-Y H:i:s') : '' }}
+                        {{ $permission->deleted_at ? $permission->deleted_at->format('d-m-Y H:i:s') : '' }}
                     </dd>
                     @endif
 
                     <dt class="col-sm-2">
-                        <form action="{{ route('roles-destroy', $role->id) }}" method="POST">
+                        <form action="{{ route('permissions-destroy', $permission->id) }}" method="POST">
                             @csrf
                             @method('DELETE')
                             <button class="btn btn-danger">
@@ -96,7 +96,7 @@
                         </form>
                     </dt>
                     <dd class="col-sm-10 text-right">
-                        <a class="btn btn-primary" href="{{ route('roles-edit', $role->id) }}">
+                        <a class="btn btn-primary" href="{{ route('permissions-edit', $permission->id) }}">
                             <i class="fas fa-edit">
                             </i>
                         </a>

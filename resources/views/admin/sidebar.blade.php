@@ -43,15 +43,15 @@
     </li>
 
     <li class="nav-item {{ Str::startsWith(Route::currentRouteName(), 'permissions') ? 'active' : '' }}">
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="{{ route('permissions-index') }}">
             <i class="fas fa-lock"></i>
             <span>Dopuštenja</span>
         </a>
 
     </li>
 
-    <li class="nav-item">
-        <a class="nav-link" href="#">
+    <li class="nav-item {{ Str::startsWith(Route::currentRouteName(), 'products') ? 'active' : '' }}">
+        <a class="nav-link" href="{{ route('products-index') }}">
             <i class="fas fa-cubes"></i>
             <span>Proizvodi</span>
         </a>
