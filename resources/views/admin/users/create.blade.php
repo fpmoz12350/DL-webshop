@@ -1,0 +1,71 @@
+@extends('admin.master')
+
+@section('content')
+
+<div class="row pl-3 pr-3">
+
+    <div class="col-lg-12">
+
+        <!-- Basic Card Example -->
+        <div class="card shadow mb-4">
+            <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                <h6 class="m-0 font-weight-bold text-primary">Stvaranje korisnika</h6>
+                <div class="text-right"><a class="btn btn-info" href="{{ route('users-index') }}">
+                        <i class="fas fa-times"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="card-body">
+            <form method="POST" action="{{ route('users-store') }}">
+                    @csrf
+                    <div class="form-group">
+                        <label for="name">Ime:</label>
+                        <input type="text" class="form-control" name="name" value="{{ old('name') }}">
+
+                        @error('name')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
+                    </div>
+                    <div class="form-group">
+                        <label for="name">E-Mail:</label>
+                        <input type="text" class="form-control" name="email" value="{{ old('email') }}">
+
+                        @error('email')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Lozinka:</label>
+                        <input type="password" class="form-control" name="password">
+
+                        @error('password')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Potvrda lozinke:</label>
+                        <input type="password" class="form-control" name="password_confirmation">
+
+                        @error('password_confirmation')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
+                    </div>
+                    <div class="form-group">
+                        @foreach($roles as $role)
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="{{ $role->id }}" id="role-{{ $role->name }}" name="roles[]">
+                            <label class="form-check-label" for="role-{{ $role->name }}">
+                                {{ $role->name }}
+                            </label>
+                        </div>
+                        @endforeach
+                    </div>
+                    <button type="submit" class="btn btn-primary">Pošalji</button>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+@endsection
