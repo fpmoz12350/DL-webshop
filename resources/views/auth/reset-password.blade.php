@@ -2,7 +2,8 @@
 
 @section('content')
 <div class="container">
-    <div class="row justify-content-center pt-4">
+    <div class="row justify-content-center pt-4 mt-5">
+        @include("webshop.template.navbar")
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">{{ __('Reset Password') }}</div>
@@ -59,6 +60,9 @@
                 </div>
             </div>
         </div>
+    </div>
+    <div class="fixed-bottom">
+        @include("webshop.template.footer")
     </div>
 </div>
 @endsection

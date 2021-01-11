@@ -21,8 +21,8 @@
 
 </head>
 <body>
-    <div id="app" class="container-fluid w-100 h-100">
-        @include('layouts.navbar')
+    <div id="app">
+        {{-- @include('layouts.navbar') --}}
             @yield('content')
     </div>
 </body>

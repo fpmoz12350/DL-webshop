@@ -6,6 +6,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ShopController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -23,7 +24,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('welcome');
 
 Route::get('/home', function () {
     return view('home');
@@ -60,5 +61,7 @@ Route::get('/product/show/{id}', [ProductController::class, 'show'])->middleware
 Route::get('/product/edit/{id}', [ProductController::class, 'edit'])->middleware('auth')->name('products-edit');
 Route::patch('/product/update/{product}', [ProductController::class, 'update'])->middleware('auth')->name('products-update');
 Route::delete('/product/destroy/{product}', [ProductController::class, 'destroy'])->middleware('auth')->name('products-destroy');
+
+Route::get('/shop', [ShopController::class, 'index'])->name('shop');
 
 

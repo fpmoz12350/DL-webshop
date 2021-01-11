@@ -2,7 +2,8 @@
 
 @section('content')
 <div class="container">
-    <div class="row justify-content-center pt-4">
+    @include("webshop.template.navbar")
+    <div class="row justify-content-center pt-4 mt-5">
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">Prijavite se</div>
@@ -68,6 +69,9 @@
                 </div>
             </div>
         </div>
+    </div>
+    <div class="fixed-bottom">
+        @include("webshop.template.footer")
     </div>
 </div>
 @endsection

@@ -47,6 +47,9 @@
         </li>--}}
 
         <!-- Nav Item - User Information -->
+        <li class="nav-item mt-4 mr-4">
+                <a href="{{ route('welcome') }}" target="_blank" class="d-none d-lg-inline text-gray-600">Naslovnica</a>
+        </li>
         <li class="nav-item dropdown no-arrow">
             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
