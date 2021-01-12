@@ -12,7 +12,7 @@
     <li class="nav-item {{ Str::startsWith(Route::currentRouteName(), 'home') ? 'active' : '' }}">
     <a class="nav-link" href="{{ route('home') }}">
             <i class="fas fa-fw fa-tachometer-alt"></i>
-            <span>Dashboard</span></a>
+            <span>Nadzorna ploča</span></a>
     </li>
 
     <!-- Divider -->
@@ -39,7 +39,6 @@
             <i class="fas fa-user-tag"></i>
             <span>Role</span>
         </a>
-
     </li>
 
     <li class="nav-item {{ Str::startsWith(Route::currentRouteName(), 'permissions') ? 'active' : '' }}">
@@ -47,7 +46,6 @@
             <i class="fas fa-lock"></i>
             <span>Dopuštenja</span>
         </a>
-
     </li>
 
     <li class="nav-item {{ Str::startsWith(Route::currentRouteName(), 'products') ? 'active' : '' }}">
@@ -55,7 +53,20 @@
             <i class="fas fa-cubes"></i>
             <span>Proizvodi</span>
         </a>
+    </li>
+    
+    <li class="nav-item {{ Str::startsWith(Route::currentRouteName(), 'categories') ? 'active' : '' }}">
+        <a class="nav-link" href="{{ route('categories-index') }}">
+            <i class="fas fa-layer-group"></i>
+            <span>Kategorije</span>
+        </a>
+    </li>
 
+    <li class="nav-item {{ Str::startsWith(Route::currentRouteName(), 'comments') ? 'active' : '' }}">
+        <a class="nav-link" href="">
+            <i class="fas fa-comments"></i>
+            <span>Komentari</span>
+        </a>
     </li>
 
     <!-- Divider -->

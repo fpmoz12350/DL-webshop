@@ -2,13 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Permission;
-use App\Http\Requests\PermissionRequest;
-use Illuminate\Support\Str;
-use Auth;
+use App\Http\Requests\CategoryRequest;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
-class PermissionController extends Controller
+class CategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,9 +15,9 @@ class PermissionController extends Controller
      */
     public function index()
     {
-        $permissions = Permission::all();
+        $categories = Category::all();
 
-        return view('admin.permissions.index', compact(['permissions']));
+        return view('admin.webshop.categories.index', compact(['categories']));
     }
 
     /**
@@ -29,7 +27,7 @@ class PermissionController extends Controller
      */
     public function create()
     {
-        return view('admin.permissions.create');
+        return view('admin.webshop.categories.create');
     }
 
     /**
@@ -38,14 +36,14 @@ class PermissionController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(PermissionRequest $request)
+    public function store(CategoryRequest $request)
     {
         $data = $request->all();
-        $data['name'] = Str::slug($data['display_name']);
+        $data = $this->setPublishedAttribute($data);
 
-        Permission::create($data);
+        Category::create($data);
 
-        return redirect()->route('permissions-index');
+        return redirect()->route('categories-index');
     }
 
     /**
@@ -56,9 +54,9 @@ class PermissionController extends Controller
      */
     public function show($id)
     {
-        $permission = Permission::findOrFail($id);
+        $category = Category::findOrFail($id);
 
-        return view('admin.permissions.show', compact(['permission']));
+        return view('admin.webshop.categories.show', compact(['category']));
     }
 
     /**
@@ -69,9 +67,9 @@ class PermissionController extends Controller
      */
     public function edit($id)
     {
-        $permission = Permission::findOrFail($id);
+        $category = Category::findOrFail($id);
 
-        return view('admin.permissions.edit', compact(['permission']));
+        return view('admin.webshop.categories.edit', compact(['category']));
     }
 
     /**
@@ -81,11 +79,14 @@ class PermissionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(PermissionRequest $request, $id)
+    public function update(CategoryRequest $request, Category $category)
     {
-        $permission->update($request->all());
+        $data = $request->all();
+        $data = $this->setPublishedAttribute($data);
 
-        return redirect()->route('permissions-index');
+        $category->update($data);
+
+        return redirect()->route('category-index');
     }
 
     /**
@@ -94,10 +95,11 @@ class PermissionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Permission $permission)
+    public function destroy($id)
     {
-        $permission->delete();
+        $category = Category::findOrFail($id);
+        $category->delete();
 
-        return redirect()->route('permissions-index');
+        return redirect()->route('categories-index');
     }
 }

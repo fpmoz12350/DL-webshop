@@ -2,6 +2,7 @@
 
 use App\Models\User;
 use App\Models\Role;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\PermissionController;
@@ -61,6 +62,14 @@ Route::get('/product/show/{id}', [ProductController::class, 'show'])->middleware
 Route::get('/product/edit/{id}', [ProductController::class, 'edit'])->middleware('auth')->name('products-edit');
 Route::patch('/product/update/{product}', [ProductController::class, 'update'])->middleware('auth')->name('products-update');
 Route::delete('/product/destroy/{product}', [ProductController::class, 'destroy'])->middleware('auth')->name('products-destroy');
+
+Route::get('/categories', [CategoryController::class, 'index'])->middleware('auth')->name('categories-index');
+Route::get('/categories/create', [CategoryController::class, 'create'])->middleware('auth')->name('categories-create');
+Route::post('/categories/store', [CategoryController::class, 'store'])->middleware('auth')->name('categories-store');
+Route::get('/categories/show/{id}', [CategoryController::class, 'show'])->middleware('auth')->name('categories-show');
+Route::get('/categories/edit/{id}', [CategoryController::class, 'edit'])->middleware('auth')->name('categories-edit');
+Route::patch('/categories/update/{categories}', [CategoryController::class, 'update'])->middleware('auth')->name('categories-update');
+Route::delete('/categories/destroy/{categories}', [CategoryController::class, 'destroy'])->middleware('auth')->name('categories-destroy');
 
 Route::get('/shop', [ShopController::class, 'index'])->name('shop');
 

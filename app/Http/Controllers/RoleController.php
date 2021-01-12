@@ -39,7 +39,7 @@ class RoleController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(RolesRequest $request)
     {
         $data = $request->all();
         $data['name'] = Str::slug($data['display_name']);
@@ -84,7 +84,7 @@ class RoleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(RolesRequest $request, $id)
     {
         $role = Role::findOrFail($id);
         $role->update($request->all());
