@@ -1,6 +1,6 @@
 <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
-    <a class="navbar-brand" href="{{ route('welcome') }}">D&L webshop</a>
+    <a class="navbar-brand" href="{{ route('welcome') }}"> <strong>D&L webshop </strong></a>
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -37,13 +37,14 @@
           <li class="nav-item">
           <a class="nav-link" href="{{ route('shop') }}">Shop</a>
           </li>
+        <!--
           <li class="nav-item">
             <a class="nav-link" href="about.html">O nama</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="contact.html">Kontakt</a>
           </li>
-          
+          -->
         </ul>
       </div>
     </div>

@@ -22,48 +22,54 @@
 
   <!-- Page Content -->
   <div class="container">
+  <div class="row w-50 p-3">
+    
+    </div>
+    <h1 class="my-4">NOVOSTI</h1>
 
-    <h1 class="my-4">....</h1>
+    <div class="row w-50 p-3">
+    
+    </div>
 
     <!-- Marketing Icons Section -->
     <div class="row">
       <div class="col-lg-4 mb-4">
         <div class="card h-100">
-          <h4 class="card-header">Card Title</h4>
+          <h3 class="card-header">Rethink fashion!</h3>
           <div class="card-body">
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p>
+            <p class="card-text">Moda je za nas oduvijek bila više od odjeće - sredstvo izražavanja! Vrijeme je da pokažemo svoju ljubav prema prirodi! Klikni i saznaj više o našoj novoj eko kolekcji.</p>
           </div>
           <div class="card-footer">
-            <a href="#" class="btn btn-primary">Learn More</a>
+            <a href="#" class="btn btn-dark">Saznaj više</a>
           </div>
         </div>
       </div>
       <div class="col-lg-4 mb-4">
         <div class="card h-100">
-          <h4 class="card-header">Card Title</h4>
+          <h3 class="card-header">"NOVO NORMALNO"</h3>
           <div class="card-body">
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis ipsam eos, nam perspiciatis natus commodi similique totam consectetur praesentium molestiae atque exercitationem ut consequuntur, sed eveniet, magni nostrum sint fuga.</p>
+            <p class="card-text">Nisu vam potrebni drugi kako bi se sredili. Izgledajte dobro za sebe. Pripremili smo za Vas nikad ljepšu kolekciju ležernih komada.</p>
           </div>
           <div class="card-footer">
-            <a href="#" class="btn btn-primary">Learn More</a>
+            <a href="#" class="btn btn-dark">Saznaj više</a>
           </div>
         </div>
       </div>
       <div class="col-lg-4 mb-4">
         <div class="card h-100">
-          <h4 class="card-header">Card Title</h4>
+          <h6 class="card-header">BUDIMO ODGOVORNI - KUPUJMO ONLINE!</h6>
           <div class="card-body">
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p>
+            <p class="card-text">Iskoritite brojne pogodnosti koje nudimo na našem webshopu. Uživjate u kup iz udubnosti vlastitog. </p>
           </div>
           <div class="card-footer">
-            <a href="#" class="btn btn-primary">Learn More</a>
+            <a href="#" class="btn btn-dark">Saznaj više</a>
           </div>
         </div>
       </div>
     </div>
     <!-- /.row -->
 
-    <!-- Portfolio Section -->
+   <!-- Portfolio Section 
     <h2>Portfolio Heading</h2>
 
     <div class="row">
@@ -100,28 +106,40 @@
           </div>
         </div>
       </div>
-      
+      -->
     <!-- /.row -->
+    </br>
+    </br>
+    </hr>
+    </br>
+    </br>
+
 
     <!-- Features Section -->
     <div class="row">
       <div class="col-lg-6">
-        <h2>Modern Business Features</h2>
-        <p>The Modern Business template by Start Bootstrap includes:</p>
+        <h2>Volimo Vas i svijet u kojem živite.</h2>
+        </br>
+        <p> <strong> Razvijamo politiku poslovanja kako bismo bili primjer drugima:</strong></p>
+        </br>
         <ul>
           <li>
-            <strong>Bootstrap v4</strong>
+            Svakodnevno povećavamo udio korištenja recikliranih materiala u proizvodnji.
           </li>
-          <li>jQuery</li>
-          <li>Font Awesome</li>
-          <li>Working contact form with validation</li>
-          <li>Unstyled page elements for easy customization</li>
+          <li>Skupa s Vama čuvamo naše oceane i koraljne grebene.</li>
+          <li>Do 2023. godine cilj nam je koristiti 90% recikliranih materiala.</li>
+          <li>Sa nama uvijek znate gdje se odjeća proizvodi - stanimo na kraj izrabljivanju dječje radne snage. </li>
+        
         </ul>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis, omnis doloremque non cum id reprehenderit, quisquam totam aspernatur tempora minima unde aliquid ea culpa sunt. Reiciendis quia dolorum ducimus unde.</p>
-      </div>
+        </br>
+        <p>   <strong>Promjena je u nama. Vrijeme je da mijenjamo modu. Zajedno.</strong></p>
+      </div> 
       <div class="col-lg-6">
-        <img class="img-fluid rounded" src="http://placehold.it/700x450" alt="">
+        <img class="img-fluid rounded" src="https://remake.world/wp-content/uploads/2017/03/Banner-Images10-768x605.jpg" alt="">
       </div>
+    </div>
+    <div class="row w-50 p-3">
+    
     </div>
     <!-- /.row -->
 
