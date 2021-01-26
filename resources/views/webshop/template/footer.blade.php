@@ -26,6 +26,12 @@
             <a class="nav-link text-light" a href="https://drive.google.com/file/d/1UrYAwmVm7vzIOv6Y6Kd0VJnS0OFNDzG5/view" target="_blank" >Vizija</a>
 
     </div>
+
+    <div class="col-sm">
+    <class="nav-item">
+            <a class="nav-link text-light" a href="https://github.com/fpmoz12350/DL-webshop" target="_blank"  >GIT</a>
+    </div>
+
     <div class="col-sm">
     <class="nav-item">
             <a class="nav-link text-light" a href="https://g3-zadaca.000webhostapp.com" target="_blank"  >O nama</a>
