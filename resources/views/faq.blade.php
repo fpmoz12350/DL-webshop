@@ -7,34 +7,23 @@
 
     <!-- Page Heading/Breadcrumbs -->
     <h1 class="mt-4 mb-3">FAQ
-        <small>Subheading</small>
+        <small>Česta pitanja</small>
     </h1>
 
-    <ol class="breadcrumb">
-        <li class="breadcrumb-item">
-            <a href="index.html">Home</a>
-        </li>
-        <li class="breadcrumb-item active">FAQ</li>
-    </ol>
-
+   
     <div class="mb-4" id="accordion" role="tablist" aria-multiselectable="true">
         <div class="card">
             <div class="card-header" role="tab" id="headingOne">
                 <h5 class="mb-0">
                     <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true"
-                        aria-controls="collapseOne">Collapsible Group Item #1</a>
+                        aria-controls="collapseOne">Kako naručiti?</a>
                 </h5>
             </div>
 
-            <div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne">
+            <div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="Kako naručiti?">
                 <div class="card-body">
-                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3
-                    wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum
-                    eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla
-                    assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt
-                    sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer
-                    farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus
-                    labore sustainable VHS.
+                    Kako biste mogli napraviti narudžbu morate biti registrirani korisnik našeg webshopa. 
+                    prvo je potrebno odabrati željene artike i dodati ih u košaricu, a zatim potvrditi narudžbu.
                 </div>
             </div>
         </div>
@@ -42,19 +31,13 @@
             <div class="card-header" role="tab" id="headingTwo">
                 <h5 class="mb-0">
                     <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo"
-                        aria-expanded="false" aria-controls="collapseTwo">Collapsible Group Item #2
+                        aria-expanded="false" aria-controls="collapseTwo">Kako se plaća?
                     </a>
                 </h5>
             </div>
             <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo">
                 <div class="card-body">
-                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3
-                    wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum
-                    eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla
-                    assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt
-                    sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer
-                    farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus
-                    labore sustainable VHS.
+                Zasada naše narudžbe naplaćujemo isključivo pouzećem.
                 </div>
             </div>
         </div>
@@ -62,21 +45,55 @@
             <div class="card-header" role="tab" id="headingThree">
                 <h5 class="mb-0">
                     <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree"
-                        aria-expanded="false" aria-controls="collapseThree">Collapsible Group Item #3</a>
+                        aria-expanded="false" aria-controls="collapseThree">Tko vrši dostavu?</a>
                 </h5>
             </div>
             <div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree">
                 <div class="card-body">
-                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3
-                    wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum
-                    eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla
-                    assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt
-                    sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer
-                    farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus
-                    labore sustainable VHS.
+                Dostavu diljem Bosne i Hercegovine vrši dostavna služba EuroExpress - naši pouzdani partneri.
+                Zajedno činimo put naših artikala do Vas lakšim i bržim!    
                 </div>
             </div>
         </div>
+
+        <div class="card">
+            <div class="card-header" role="tab" id="headingFour">
+                <h5 class="mb-0">
+                    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFour"
+                        aria-expanded="false" aria-controls="collapseFour">Da li je moguć povrat robe?</a>
+                </h5>
+            </div>
+            <div id="collapseFour" class="collapse" role="tabpanel" aria-labelledby="headingFour">
+                <div class="card-body">
+                Moguće je ostavariti povrat naručene robe ukoliko Vam ista ne odgovara. 
+                Rok za besplatnu zamjenu je 14 radnih dana od preuzimanja narudžbe. 
+                Deklaracije i etikete na artiklima pritom ne smiju biti oštećene.
+                </div>
+            </div>
+        </div>
+
+        
+        <div class="card">
+            <div class="card-header" role="tab" id="headingFive">
+                <h5 class="mb-0">
+                    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFive"
+                        aria-expanded="false" aria-controls="collapseFive">Kako se vrši povrat robe?</a>
+                </h5>
+            </div>
+            <div id="collapseFive" class="collapse" role="tabpanel" aria-labelledby="headingFive">
+                <div class="card-body">
+                Povrat, kao i dostavu vršimo preko dostavna službe EuroExpress. 
+                U samom paketu koji dobijete nalaziti će se naljenica na kojoj će pisati "POVRAT".
+                Naljepnicu je potrebno zalijepiti na ambalažu u kojoj se vrši povrat, te ispuniti 
+                obrazac o povratu i staviti ga zajedno s artiklom u pošiljku koju vraćate. Troškove povrata 
+                snosi D&L webshop.   
+                </div>
+            </div>
+        </div>
+
+
+
+
     </div>
 
 </div>
