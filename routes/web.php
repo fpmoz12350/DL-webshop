@@ -34,6 +34,10 @@ Route::get('/home', function () {
     return view('home');
 })->middleware('auth')->name('home');
 
+Route::get('/cv', function () {
+    return view('cv');
+});
+
 Route::get('/users', [UserController::class, 'index'])->middleware('auth')->name('users-index');
 Route::get('/user/create', [UserController::class, 'create'])->middleware('auth')->name('users-create');
 Route::post('/user/store', [UserController::class, 'store'])->middleware('auth')->name('users-store');
