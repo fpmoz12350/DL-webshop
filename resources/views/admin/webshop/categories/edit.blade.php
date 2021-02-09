@@ -35,11 +35,25 @@
                         @enderror
                     </div>
                     <div class="form-group">
+                        @php($column = 'parent_id')
+                        <label for="{{ $column }}">{{ ucwords(str_replace(['_id', '_'], ['', ' '], $column)) }}:</label>
+                      <select class="form-control" name="{{ $column }}">
+                          <option value="">-- Odaberi kategoriju --</option>
+                          @foreach($categories as $categoryAsOption)
+                          <option value="{{ $categoryAsOption->id }}"{{ $category->parent_id == $categoryAsOption->id ? ' selected' : '' }}>{{ str_repeat('- ', $categoryAsOption->depth) }}{{ $categoryAsOption->name }}</option>
+                          @endforeach
+                      </select>
+                     
+                        @error($column)
+                        <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
+                      </div>
+                    <div class="form-group">
                         @php($column = 'published')
                         <div class="form-check">
                         <input class="form-check-input" type="checkbox" name="{{ $column }}"{{ old($column) || $category->$column ? ' checked' : '' }}>
                             <label class="form-check-label" for="{{ $column }}">
-                                {{ ucfirst($column) }}
+                                objavljena
                             </label>
                         </div>
                     <button type="submit" class="btn btn-primary mt-3">Pošalji</button>

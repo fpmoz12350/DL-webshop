@@ -3,6 +3,7 @@
 namespace App\Actions\Fortify;
 
 use App\Models\User;
+use App\Models\Role;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
@@ -33,10 +34,14 @@ class CreateNewUser implements CreatesNewUsers
             'role' => ['string', 'max:255'] 
         ])->validate();
 
-        return User::create([
+        $user = User::create([
             'name' => $input['name'],
             'email' => $input['email'],
             'password' => Hash::make($input['password']),
         ]);
+
+        $kupac = Role::find(1);
+        $user->attachRole($kupac);
+        return $user;
     }
 }

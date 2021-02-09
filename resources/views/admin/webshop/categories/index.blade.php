@@ -21,13 +21,13 @@
                     <thead>
                         <tr>
                             <th scope="col">
+                                Preuredi
+                            </th>
+                            <th scope="col">
                                 #
                             </th>
                             <th scope="col">
                                 Naziv
-                            </th>
-                            <th scope="col">
-                                Opis
                             </th>
                             <th scope="col">
                                 Objavljen
@@ -37,17 +37,19 @@
                             </th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody class="row_drag">
                         @foreach($categories as $category)
-                        <tr>
+                        <tr id="category_{{ $category->id }}">
+                            <td scope="row">
+                                <i class="fa fa-sort"></i>
+                            </td>
                             <th scope="row">
                                 {{ $category->id }}
                             </th>
                             <td>
-                                {{ $category->name }}
-                            </td>
-                            <td scope="row">
-                                {{ $category->description }}
+                                {{ str_repeat('- ', $category->depth) }}{{ $category->name }}
+                            <a href="{{ route('categories-filter', $category->id) }}"><i class="fa fa-list-alt" aria-hidden="true"></i>
+                                </a>
                             </td>
                             <td class="text-center">
                                 @if($category->published)
@@ -59,21 +61,24 @@
                                 @endif
                             </td>
                             <td>
-                            <a class="btn btn-success" href="{{ route("categories-show", $category->id) }}">
+                                <a class="btn btn-success"
+                                    href="{{ route('categories-show', $category->id) }}">
                                     <i class="fas fa-search-plus">
                                     </i>
                                 </a>
-                                <a class="btn btn-primary" href="{{ route("categories-edit", $category->id) }}">
+                                <a class="btn btn-primary"
+                                    href="{{ route('categories-edit', $category->id) }}">
                                     <i class="fas fa-edit">
                                     </i>
                                 </a>
                                 <div style="display:inline-block;">
-                                <form action="{{ route("categories-destroy", $category->id) }}" method="POST">
+                                    <form action="{{ route('categories-destroy', $category->id) }}"
+                                        method="POST">
                                         @csrf
                                         @method('DELETE')
                                         <button class="btn btn-danger">
-                                          <i class="fas fa-times">
-                                          </i>
+                                            <i class="fas fa-times">
+                                            </i>
                                         </button>
                                     </form>
                                 </div>
@@ -86,5 +91,44 @@
         </div>
     </div>
 </div>
+@endsection
 
+@section('javascript')
+{{-- @parent() --}}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
+<script type="text/javascript">
+    // $(".row_drag>tr").css("background-color", "blue");
+    $(".fa-sort").mousedown(function() {
+    console.log("Handler for .mousedown() called.");
+    $(".row_drag").sortable({
+        delay: 100,
+
+        stop: function(event, ui) {
+            var selectedRow = new Array();
+            var id;
+            // var thisId = $(this).attr("id");
+            var thisId = ui.item.attr('id').replace("category_", "");
+            $(".row_drag>tr").each(function() {
+                id = $(this).attr("id");
+                selectedRow.push(id.replace("category_", ""));
+            });
+            console.log(selectedRow);
+            // prva varijabla pripada ajaxu a druga nosi vrijednost na server
+            // _token: csrf_token()
+            $.get( "{{ route('categories-reorder') }}", { categories: selectedRow, thisId: thisId } )
+                .done(function( data ) {
+                    console.log( data );
+            })  
+                .fail(function (jqXHR, textStatus, errorThrown){
+                    // Log the error to the console
+                    console.error(
+                        "The following error occurred: "+
+                        textStatus, errorThrown
+                    );
+    });
+        }
+    });
+});
+</script>
 @endsection

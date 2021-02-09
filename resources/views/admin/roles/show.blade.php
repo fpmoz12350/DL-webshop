@@ -66,14 +66,14 @@
                         Stvorena:
                     </dt>
                     <dd class="col-sm-10">
-                        {{ $role->created_at->format('d-m-Y H:i:s') }}
+                        {{ $role->created_at->format(config('custom.date.time')) }}
                     </dd>
 
                     <dt class="col-sm-2 text-right">
                         Uređena:
                     </dt>
                     <dd class="col-sm-10">
-                        {{ $role->updated_at->format('d-m-Y H:i:s') }}
+                        {{ $role->updated_at->format(config('custom.date.time')) }}
                     </dd>
 
                     @if($role->deleted_at)
@@ -81,7 +81,7 @@
                         Obrisana:
                     </dt>
                     <dd class="col-sm-10">
-                        {{ $role->deleted_at ? $role->deleted_at->format('d-m-Y H:i:s') : '' }}
+                        {{ $role->deleted_at ? $role->deleted_at->format(config('custom.date.time')) : '' }}
                     </dd>
                     @endif
 

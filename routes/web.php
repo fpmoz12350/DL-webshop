@@ -8,6 +8,8 @@ use App\Http\Controllers\RoleController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ShopController;
+use App\Http\Controllers\CommentController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -77,6 +79,20 @@ Route::get('/categories/show/{id}', [CategoryController::class, 'show'])->middle
 Route::get('/categories/edit/{id}', [CategoryController::class, 'edit'])->middleware('auth')->name('categories-edit');
 Route::patch('/categories/update/{categories}', [CategoryController::class, 'update'])->middleware('auth')->name('categories-update');
 Route::delete('/categories/destroy/{categories}', [CategoryController::class, 'destroy'])->middleware('auth')->name('categories-destroy');
+Route::get('categories/{category}/up', [CategoryController::class, 'up'])->name('categories-up');
+Route::get('categories/{category}/down', [CategoryController::class, 'down'])->name('categories-down');
+Route::get('categories/reorder', [CategoryController::class, 'reorder'])->name('categories-reorder');
+Route::get('categories/{category}/filter', [CategoryController::class, 'filter'])->name('categories-filter');
+
+Route::get('/comments', [CommentController::class, 'index'])->middleware('auth')->name('comments-index');
+Route::get('/comments/show/{id}', [CommentController::class, 'show'])->middleware('auth')->name('comments-show');
+Route::delete('/comments/destroy/{comments}', [CommentController::class, 'destroy'])->middleware('auth')->name('comments-destroy');
+
+Route::get('/orders', [OrderController::class, 'index'])->middleware('auth')->name('orders-index');
+Route::get('/orders/show/{id}', [OrderController::class, 'show'])->middleware('auth')->name('orders-show');
+Route::get('/orders/edit/{id}', [OrderController::class, 'edit'])->middleware('auth')->name('orders-edit');
+Route::patch('/orders/update/{orders}', [OrderController::class, 'update'])->middleware('auth')->name('orders-update');
+Route::delete('/orders/destroy/{orders}', [OrderController::class, 'destroy'])->middleware('auth')->name('orders-destroy');
 
 Route::get('/shop', [ShopController::class, 'index'])->name('shop');
 

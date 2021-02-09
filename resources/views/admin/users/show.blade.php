@@ -78,14 +78,14 @@
                         Stvoren:
                     </dt>
                     <dd class="col-sm-10">
-                        {{ $user->created_at->format('d-m-Y H:i:s') }}
+                        {{ $user->created_at->format(config('custom.date.time')) }}
                     </dd>
 
                     <dt class="col-sm-2 text-right">
                         Uređen:
                     </dt>
                     <dd class="col-sm-10">
-                        {{ $user->updated_at->format('d-m-Y H:i:s') }}
+                        {{ $user->updated_at->format(config('custom.date.time')) }}
                     </dd>
 
                     @if($user->deleted_at)
@@ -93,7 +93,7 @@
                         Obrisan:
                     </dt>
                     <dd class="col-sm-10">
-                        {{ $user->deleted_at ? $user->deleted_at->format('d-m-Y H:i:s') : '' }}
+                        {{ $user->deleted_at ? $user->deleted_at->format(config('custom.date.time')) : '' }}
                     </dd>
                     @endif
 

@@ -1,15 +1,17 @@
 @extends('admin.master')
 
 @section('content')
+
 <div class="row pl-3 pr-3">
     <div class="col-lg-12">
+        <!-- Basic Card Example -->
         <div class="card shadow mb-4">
             <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                 <h6 class="m-0 font-weight-bold text-primary">
-                    Prikaz kategorije :: {{ $category->name }}
+                    Prikaz komentara :: {{ $comment->title }}
                 </h6>
                 <div class="text-right">
-                    <a class="btn btn-info" href="{{ route('categories-index') }}">
+                    <a class="btn btn-info" href="{{ route('comments-index') }}">
                         <i class="fas fa-times">
                         </i>
                     </a>
@@ -18,7 +20,7 @@
             <div class="card-body">
                 <dl class="row">
                     <dt class="col-sm-2">
-                        <form action="{{ route('categories-destroy', $category->id) }}" method="POST">
+                        <form action="{{ route('comments-destroy', $comment->id) }}" method="POST">
                             @csrf
                             @method('DELETE')
                             <button class="btn btn-danger">
@@ -28,65 +30,68 @@
                         </form>
                     </dt>
                     <dd class="col-sm-10 text-right">
-                        <a class="btn btn-primary" href="{{ route('categories-edit', $category->id) }}">
-                            <i class="fas fa-edit">
-                            </i>
-                        </a>
                     </dd>
 
                     <dt class="col-sm-2 text-right">
                         ID:
                     </dt>
                     <dd class="col-sm-10">
-                        {{ $category->id }}
+                        {{ $comment->id }}
                     </dd>
 
                     <dt class="col-sm-2 text-right">
-                        Naziv:
+                        Name:
                     </dt>
                     <dd class="col-sm-10">
-                        {{ $category->name }}
+                        {{ $comment->title }}
+                    </dd>
+                    
+                    <dt class="col-sm-2 text-right">
+                        Naziv korisnika:
+                    </dt>
+                    <dd class="col-sm-10">
+                        {{ $comment->user['name'] }}
+                    </dd>
+
+                    <dt class="col-sm-2 text-right">
+                        Naziv proizvoda:
+                    </dt>
+                    <dd class="col-sm-10">
+                        {{ $comment->product['name'] }}
                     </dd>
 
                     <dt class="col-sm-2 text-right">
                         Opis:
                     </dt>
                     <dd class="col-sm-10">
-                        {!! nl2br($category->description) !!}
+                        {{ nl2br($comment->description) }}
                     </dd>
 
                     <dt class="col-sm-2 text-right">
-                        Objavljena:
+                        Stvoren:
                     </dt>
                     <dd class="col-sm-10">
-                        {{ $category->published ? 'da' : 'ne' }}
+                        {{ $comment->created_at->format(config('custom.date.time')) }}
                     </dd>
 
                     <dt class="col-sm-2 text-right">
-                        Stvorena:
+                        Uređen:
                     </dt>
                     <dd class="col-sm-10">
-                        {{ $category->created_at->format(config('custom.date.time')) }}
+                        {{ $comment->updated_at ? $comment->deleted_at->format(config('custom.date.time')) : '' }}
                     </dd>
 
+                    @if($comment->deleted_at)
                     <dt class="col-sm-2 text-right">
-                        Uređena:
+                        Obrisan:
                     </dt>
                     <dd class="col-sm-10">
-                        {{ $category->updated_at->format(config('custom.date.time')) }}
-                    </dd>
-
-                    @if($category->deleted_at)
-                    <dt class="col-sm-2 text-right">
-                        Obrisana:
-                    </dt>
-                    <dd class="col-sm-10">
-                        {{ $category->deleted_at ? $category->deleted_at->format(config('custom.date.time')) : '' }}
+                        {{ $comment->deleted_at ? $comment->deleted_at->format(config('custom.date.time')) : '' }}
                     </dd>
                     @endif
 
                     <dt class="col-sm-2">
-                        <form action="{{ route('categories-destroy', $category->id) }}" method="POST">
+                        <form action="{{ route('comments-destroy', $comment->id) }}" method="POST">
                             @csrf
                             @method('DELETE')
                             <button class="btn btn-danger">
@@ -96,15 +101,12 @@
                         </form>
                     </dt>
                     <dd class="col-sm-10 text-right">
-                        <a class="btn btn-primary" href="{{ route('categories-edit', $category->id) }}">
-                            <i class="fas fa-edit">
-                            </i>
-                        </a>
                     </dd>
                 </dl>
             </div>
         </div>
     </div>
-</div>
+    </div>
 
+</div>
 @endsection

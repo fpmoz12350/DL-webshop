@@ -7,9 +7,15 @@ use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\UserRequest;
 use App\Models\User;
 use App\Models\Role;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rule;
+use Laravel\Fortify\Contracts\CreatesNewUsers;
+use App\Actions\Fortify\PasswordValidationRules;
 
 class UserController extends Controller
 {
+    use PasswordValidationRules;
+
     public function index(){
         $users = User::all();
 
@@ -18,21 +24,39 @@ class UserController extends Controller
 
     public function create()
     {
-        return view('admin.users.create')
-        ->with('roles', Role::all());
+        return view('admin.users.create')->with('roles', Role::all());
     }
 
     public function store(UserRequest $request)
     {
         $data = $request->all();
-        $data['user_id'] = auth()->user()->id;
-        $data['password'] = Hash::make(auth()->user()->password);
-        #$data['password_confirmation'] = Hash::make(auth()->user()->password_confirmation);
+        #$data['user_id'] = auth()->user()->id;
+        #$data['password'] = Hash::make(auth()->user()->password);
+        
+        Validator::make($data, [
+            'name' => ['required', 'string', 'max:255'],
+            'email' => [
+                'required',
+                'string',
+                'email',
+                'max:255',
+                Rule::unique(User::class),
+            ],
+            'password' => $this->passwordRules(),
+            'role' => ['string', 'max:255'] 
+        ])->validate();
 
-        #dd($data);
+        $user = User::create([
+            'name' => $data['name'],
+            'email' => $data['email'],
+            'password' => Hash::make($data['password']),
+        ]);
 
-        $user = User::create($data);
-        $user->roles()->attach($request->roles);
+        $kupac = Role::find(1);
+        $user->attachRole($kupac);
+        
+        #$user = User::create($data);
+        #$user->roles()->attach($request->roles);
 
         return redirect()->route('users-index');
     }

@@ -26,12 +26,35 @@
                         @enderror
                     </div>
                     <div class="form-group">
-                        <label for="description">Cijena:</label>
-                        <textarea class="form-control" name="price" rows="3"></textarea>
-
-                        @error('description')
+                        @php($column = 'category_id')
+                        <label for="{{ $column }}">{{ ucwords(str_replace(['_id', '_'], ['', ' '], $column)) }}:</label>
+                        <select class="form-control" name="{{ $column }}">
+                          <option value="">-- Odaberi kategoriju --</option>
+                          @foreach($categories as $categoryAsOption)
+                          <option value="{{ $categoryAsOption->id }}">{{ str_repeat('- ', $categoryAsOption->depth) }}{{ $categoryAsOption->name }}</option>
+                          @endforeach
+                      </select>
+                     
+                        @error($column)
                         <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
+                    </div>
+                    <div class="form-group">
+                        <label for="price">Cijena:</label>
+                        <textarea class="form-control" name="price" rows="3"></textarea>
+
+                        @error('price')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
+                    </div>
+                    <div class="form-group">
+                        @php($column = 'description')
+                      <label for="{{ $column }}">Opis:</label>
+                    <textarea class="form-control" name="description" rows="3">{{ old($column) }}</textarea>
+          
+                      @error($column)
+                      <div class="alert alert-danger">{{ $message }}</div>
+                      @enderror
                     </div>
                     <div class="form-group">
                         @php($column = 'published')

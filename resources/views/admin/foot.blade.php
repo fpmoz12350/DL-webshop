@@ -5,6 +5,9 @@
 <!-- Core plugin JavaScript-->
 <script src="{{ asset('admin/vendor/jquery-easing/jquery.easing.min.js') }}"></script>
 
+<!-- Styles -->
+<link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
 <!-- Custom scripts for all pages-->
 <script src="{{ asset('admin/js/sb-admin-2.min.js') }}"></script>
 
@@ -14,3 +17,9 @@
 <!-- Page level custom scripts -->
 <script src="{{ asset('admin/js/demo/chart-area-demo.js') }}"></script>
 <script src="{{ asset('admin/js/demo/chart-pie-demo.js') }}"></script>
+
+<!-- Scripts -->
+{{-- <script src="{{ asset('js/app.js') }}" defer></script> --}}
+
+<!-- Styles -->
+{{-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> --}}

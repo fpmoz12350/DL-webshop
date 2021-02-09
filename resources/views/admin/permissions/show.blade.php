@@ -66,14 +66,14 @@
                         Stvoreno:
                     </dt>
                     <dd class="col-sm-10">
-                        {{ $permission->created_at->format('d-m-Y H:i:s') }}
+                        {{ $permission->created_at->format(config('custom.date.time')) }}
                     </dd>
 
                     <dt class="col-sm-2 text-right">
                         Uređeno:
                     </dt>
                     <dd class="col-sm-10">
-                        {{ $permission->updated_at->format('d-m-Y H:i:s') }}
+                        {{ $permission->updated_at->format(config('custom.date.time')) }}
                     </dd>
 
                     @if($permission->deleted_at)
@@ -81,7 +81,7 @@
                         Obrisano:
                     </dt>
                     <dd class="col-sm-10">
-                        {{ $permission->deleted_at ? $permission->deleted_at->format('d-m-Y H:i:s') : '' }}
+                        {{ $permission->deleted_at ? $permission->deleted_at->format(config('custom.date.time')) : '' }}
                     </dd>
                     @endif
 

@@ -63,9 +63,16 @@
     </li>
 
     <li class="nav-item {{ Str::startsWith(Route::currentRouteName(), 'comments') ? 'active' : '' }}">
-        <a class="nav-link" href="">
+        <a class="nav-link" href="{{ route('comments-index') }}">
             <i class="fas fa-comments"></i>
             <span>Komentari</span>
+        </a>
+    </li>
+
+    <li class="nav-item {{ Str::startsWith(Route::currentRouteName(), 'orders') ? 'active' : '' }}">
+        <a class="nav-link" href="{{ route('orders-index') }}">
+            <i class="fas fa-file-invoice"></i>
+            <span>Narudžbe</span>
         </a>
     </li>
 
