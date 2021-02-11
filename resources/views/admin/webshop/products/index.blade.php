@@ -51,7 +51,7 @@
                                 {{ $product->name }}
                             </td>
                             <td>
-                                {!! Str::words(nl2br($product->description), 10) !!}
+                                {{ Str::limit($product->description, 30) }}
                             </td>
                             <td>
                                 {{ $product->price }}

@@ -1,189 +1,93 @@
+@extends('webshop.template.head')
+@extends('webshop.template.navbar')
 
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
-
-  <title>Shop Homepage - Start Bootstrap Template</title>
-
-  <!-- Bootstrap core CSS -->
-  <link href="{{ asset('template-shop/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
-
-  <!-- Custom styles for this template -->
-  <link href="{{ asset('template-shop/css/shop-homepage.css') }}" rel="stylesheet">
-
-</head>
-
-<body>
-
-  <!-- Navigation -->
-  @include('webshop.template.navbar')
-
-  <!-- Page Content -->
-  <div class="container">
-
-    <div class="row">
-
-      <div class="col-lg-3">
-
-        <h1 class="my-4">D&L webshop</h1>
-        <div class="list-group">
-          <a href="#" class="list-group-item">Muškarci</a>
-          <a href="#" class="list-group-item">Žene</a>
-         
-        </div>
-
+@section('content')
+  <div class="container mt-5">
+    <div class="row pt-5">
+      <div class="col-lg-6 mb-5 ftco-animate">
+        <a href="{{ asset('images/1.jpg') }}" class="image-popup" title="komp">
+          <img src="{{ asset('images/1.jpg') }}" class="img-fluid" alt="komp">
+        </a>
       </div>
-      <!-- /.col-lg-3 -->
-
-      <div class="col-lg-9">
-
-        <div id="carouselExampleIndicators" class="carousel slide my-4" data-ride="carousel">
-          <ol class="carousel-indicators">
-            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-            
-          </ol>
-          <div class="carousel-inner" role="listbox">
-            <div class="carousel-item active">
-              <img class="d-block img-fluid" src="https://cdn.shopify.com/s/files/1/1774/4785/files/HR_desktop_banner_znizanje_1.jpg?360" alt="First slide">
-            </div>
-            <div class="carousel-item">
-              <img class="d-block img-fluid" src="https://cdn.shopify.com/s/files/1/0118/6352/files/1_55d7f313-bff6-44a4-adaa-4e126fb983f8_2048x2048.jpg?v=1552320224" alt="Second slide">
-            </div>
+      <div class="col-lg-6 product-details pl-md-5 ftco-animate">
+        <h3>{{ $product->name }}</h3>
+        <p class="price"><span>{{ $product->price }} KM</span></p>
+        {{ $product->description }}
+        <div class="row mt-4">
+          <div class="w-100"></div>
+          <div class="input-group col-md-6 d-flex mb-3">
+            <span class="input-group-btn mr-2">
+              <button type="button" class="quantity-left-minus btn" data-type="minus" data-field="">
+                <i class="ion-ios-remove"></i>
+              </button>
+            </span>
+            <input type="text" id="quantity" name="quantity" class="form-control input-number" value="1" min="1"
+              max="100">
+            <span class="input-group-btn ml-2">
+              <button type="button" class="quantity-right-plus btn" data-type="plus" data-field="">
+                <i class="ion-ios-add"></i>
+              </button>
+            </span>
           </div>
-          <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-          </a>
-          <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-          </a>
         </div>
-
-        <div class="row">
-
-          <div class="col-lg-4 col-md-6 mb-4">
-            <div class="card h-100">
-              <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-              <div class="card-body">
-                <h4 class="card-title">
-                  <a href="#">Item One</a>
-                </h4>
-                <h5>$24.99</h5>
-                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
-              </div>
-              <div class="card-footer">
-                <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 mb-4">
-            <div class="card h-100">
-              <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-              <div class="card-body">
-                <h4 class="card-title">
-                  <a href="#">Item Two</a>
-                </h4>
-                <h5>$24.99</h5>
-                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur! Lorem ipsum dolor sit amet.</p>
-              </div>
-              <div class="card-footer">
-                <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 mb-4">
-            <div class="card h-100">
-              <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-              <div class="card-body">
-                <h4 class="card-title">
-                  <a href="#">Item Three</a>
-                </h4>
-                <h5>$24.99</h5>
-                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
-              </div>
-              <div class="card-footer">
-                <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 mb-4">
-            <div class="card h-100">
-              <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-              <div class="card-body">
-                <h4 class="card-title">
-                  <a href="#">Item Four</a>
-                </h4>
-                <h5>$24.99</h5>
-                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
-              </div>
-              <div class="card-footer">
-                <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 mb-4">
-            <div class="card h-100">
-              <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-              <div class="card-body">
-                <h4 class="card-title">
-                  <a href="#">Item Five</a>
-                </h4>
-                <h5>$24.99</h5>
-                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur! Lorem ipsum dolor sit amet.</p>
-              </div>
-              <div class="card-footer">
-                <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 mb-4">
-            <div class="card h-100">
-              <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-              <div class="card-body">
-                <h4 class="card-title">
-                  <a href="#">Item Six</a>
-                </h4>
-                <h5>$24.99</h5>
-                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
-              </div>
-              <div class="card-footer">
-                <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-              </div>
-            </div>
-          </div>
-
-        </div>
-        <!-- /.row -->
-
+        <p><a href="{{ route('add-to-cart') }}" class="btn btn-primary" id="add-to-cart">Dodaj u košaricu</a></p>
       </div>
-      <!-- /.col-lg-9 -->
-
     </div>
-    <!-- /.row -->
-
   </div>
-  <!-- /.container -->
 
-  <!-- Footer -->
-  @include('webshop.template.footer')
+@extends('webshop.template.foot')
 
-  <!-- Bootstrap core JavaScript -->
-  <script src="{{ asset('template-shop/vendor/jquery/jquery.min.js') }}"></script>
-  <script src="{{ asset('template-shop/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    <!----------- Footer ------------>
+    <footer class="footer-bs footer-dark bg-dark fixed-bottom">
 
-</body>
 
-</html>
+      <div class="row w-50 p-3">
+      
+      </div>
+      
+      <div class="row">
+
+      <div class="col-sm-1">
+      </div>
+  
+  
+      <div class="col-sm">
+      <div class="nav-item">
+              <a class="nav-link text-light" href="{{ route('terms') }}">Uvjeti korištenja</a>
+      </div>
+      </div>
+      <div class="col-sm">
+      
+      <div class="nav-item">
+              <a class="nav-link text-light" a href="{{ route('faq') }}">FAQ</a>
+  
+      </div>
+      </div>
+      <div class="col-sm">
+      <div class="nav-item">
+              <a class="nav-link text-light" a href="{{ route('about_us') }}">O nama</a>
+      </div>
+      </div>
+      <div class="col-sm">
+      <div class="nav-item">
+              <a class="nav-link text-light" href="{{ route('contact') }}">Kontakt</a>
+      </div>
+      </div>
+    </div>
+    
+  
+  
+    <div class="row ">
+    <hr/>
+  
+    <div class="col-sm"  >
+    <section style="text-align:center; margin:50px auto; color:white"><p>© Dizajnirali Dario & Lucija </a></p></section>
+      </div>
+  
+   
+      </div>
+  
+      </footer>
+    
+  
+  </div>

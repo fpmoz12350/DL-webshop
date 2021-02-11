@@ -52,7 +52,7 @@
                         Opis:
                     </dt>
                     <dd class="col-sm-10">
-                        {!! nl2br($category->description) !!}
+                        {{ Str::words(nl2br($category->description), 10) }}
                     </dd>
 
                     <dt class="col-sm-2 text-right">

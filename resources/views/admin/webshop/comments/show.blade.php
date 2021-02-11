@@ -40,7 +40,7 @@
                     </dd>
 
                     <dt class="col-sm-2 text-right">
-                        Name:
+                        Ime:
                     </dt>
                     <dd class="col-sm-10">
                         {{ $comment->title }}

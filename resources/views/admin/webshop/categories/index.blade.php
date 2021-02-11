@@ -30,7 +30,7 @@
                                 Naziv
                             </th>
                             <th scope="col">
-                                Objavljen
+                                Objavljena
                             </th>
                             <th scope="col">
                                 Akcije

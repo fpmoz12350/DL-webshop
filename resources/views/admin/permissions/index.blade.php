@@ -41,10 +41,10 @@
                                 {{ $permission->id }}
                             </th>
                             <td>
-                                {{ $permission->name }}
+                                {{ Str::limit($permission->display_name, 20) }}
                             </td>
                             <td>
-                                {{ $permission->description }}
+                                {{ Str::limit($permission->description, 20) }}
                             </td>
                             <td>
                             <a class="btn btn-success" href="{{ route("permissions-show", $permission->id) }}">

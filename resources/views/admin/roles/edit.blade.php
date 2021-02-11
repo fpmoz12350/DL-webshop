@@ -34,6 +34,16 @@
                         <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
                     </div>
+                    <div class="form-group">
+                        @foreach($permissions as $permission)
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="{{ $permission->id }}" id="permission-{{ $permission->name }}" name="permissions[]" {{ in_array($permission->id, $role_permissions) ? "checked" : "" }}>
+                            <label class="form-check-label" for="permission-{{ $permission->name }}">
+                                {{ $permission->display_name }}
+                            </label>
+                        </div>
+                        @endforeach
+                    </div>
                     <button type="submit" class="btn btn-primary">Pošalji</button>
                 </form>
             </div>

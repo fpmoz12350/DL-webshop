@@ -36,7 +36,7 @@
                     </div>
                     <div class="form-group">
                         @php($column = 'parent_id')
-                        <label for="{{ $column }}">{{ ucwords(str_replace(['_id', '_'], ['', ' '], $column)) }}:</label>
+                        <label for="{{ $column }}">Kategorija:</label>
                       <select class="form-control" name="{{ $column }}">
                           <option value="">-- Odaberi kategoriju --</option>
                           @foreach($categories as $categoryAsOption)

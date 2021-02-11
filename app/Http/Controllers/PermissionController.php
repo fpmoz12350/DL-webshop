@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Permission;
+use App\Models\Role;
 use App\Http\Requests\PermissionRequest;
 use Illuminate\Support\Str;
 use Auth;
@@ -29,7 +30,7 @@ class PermissionController extends Controller
      */
     public function create()
     {
-        return view('admin.permissions.create');
+        return view('admin.permissions.create')->with('roles', Role::all());;
     }
 
     /**
@@ -40,10 +41,11 @@ class PermissionController extends Controller
      */
     public function store(PermissionRequest $request)
     {
-        $data = $request->all();
+        $data = $request->only(['display_name', 'description']);
         $data['name'] = Str::slug($data['display_name']);
 
-        Permission::create($data);
+        $permission = Permission::create($data);
+        $permission->roles()->sync($request->roles);
 
         return redirect()->route('permissions-index');
     }
@@ -70,8 +72,11 @@ class PermissionController extends Controller
     public function edit($id)
     {
         $permission = Permission::findOrFail($id);
+        $permission_roles = $permission->roles->pluck('id')->toArray();
 
-        return view('admin.permissions.edit', compact(['permission']));
+        return view('admin.permissions.edit', compact(['permission', 'permission_roles']))
+        ->with('roles', Role::all());;
+        
     }
 
     /**
@@ -83,9 +88,12 @@ class PermissionController extends Controller
      */
     public function update(PermissionRequest $request, $id)
     {
-        $permission->update($request->all());
+        $permission = Permission::findOrFail($id);
+        $permission->update($request->only(['display_name', 'description']));
+        $permission->roles()->sync($request->roles);
 
         return redirect()->route('permissions-index');
+
     }
 
     /**

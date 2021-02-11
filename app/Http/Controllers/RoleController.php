@@ -7,6 +7,7 @@ use Illuminate\Support\Str;
 use App\Http\Requests\RoleRequest;
 use App\Models\User;
 use App\Models\Role;
+use App\Models\Permission;
 use Auth;
 
 class RoleController extends Controller
@@ -30,7 +31,7 @@ class RoleController extends Controller
      */
     public function create()
     {
-        return view('admin.roles.create');
+        return view('admin.roles.create')->with('permissions', Permission::all());
     }
 
     /**
@@ -41,13 +42,13 @@ class RoleController extends Controller
      */
     public function store(RoleRequest $request)
     {
-        $data = $request->all();
+        $data = $request->only(['display_name', 'description']);
         $data['name'] = Str::slug($data['display_name']);
         #$data['user_id'] = Auth::user()->id;
         #dd($data);
 
-        Role::create($data);
-
+        $role = Role::create($data);
+        $role->permissions()->sync($request->permissions);
         return redirect()->route('roles-index');
     }
 
@@ -73,8 +74,10 @@ class RoleController extends Controller
     public function edit($id)
     {
         $role = Role::findOrFail($id);
+        $role_permissions = $role->permissions->pluck('id')->toArray();
 
-        return view('admin.roles.edit', compact(['role']));
+        return view('admin.roles.edit', compact(['role', 'role_permissions']))
+        ->with('permissions', Permission::all());
     }
 
     /**
@@ -87,7 +90,8 @@ class RoleController extends Controller
     public function update(RoleRequest $request, $id)
     {
         $role = Role::findOrFail($id);
-        $role->update($request->all());
+        $role->update($request->only(['display_name', 'description']));
+        $role->permissions()->sync($request->permissions);
 
         return redirect()->route('roles-index');
     }

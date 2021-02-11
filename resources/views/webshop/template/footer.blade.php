@@ -16,7 +16,7 @@
     
         <div class="col-sm">
         <div class="nav-item">
-                <a class="nav-link text-light" href="{{ route('terms') }}">Terms & Conditions</a>
+                <a class="nav-link text-light" href="{{ route('terms') }}">Uvjeti korištenja</a>
         </div>
         </div>
         <div class="col-sm">
@@ -44,7 +44,7 @@
       <hr/>
     
       <div class="col-sm"  >
-      <section style="text-align:center; margin:50px auto; color:white"><p>© Designed by Dario & Lucija </a></p></section>
+      <section style="text-align:center; margin:50px auto; color:white"><p>© Dizajnirali Dario & Lucija </a></p></section>
         </div>
     
      

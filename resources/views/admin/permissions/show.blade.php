@@ -59,7 +59,18 @@
                         Opis:
                     </dt>
                     <dd class="col-sm-10">
-                        {!! nl2br($permission->description) !!}
+                        {{ nl2br($permission->description) }}
+                    </dd>
+
+                    <dt class="col-sm-2 text-right">
+                        Uloge:
+                    </dt>
+                    <dd class="col-sm-10">
+                        <ul>
+                            @foreach($permission->roles as $role)
+                            <li>{{ $role->display_name }}</li>
+                            @endforeach
+                        </ul>
                     </dd>
 
                     <dt class="col-sm-2 text-right">

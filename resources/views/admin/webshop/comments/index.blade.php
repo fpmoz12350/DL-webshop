@@ -45,7 +45,7 @@
                                 {{ $comment->title }}
                             </td>
                             <td>
-                                {{ Str::words(nl2br($comment->description), 5) }}
+                                {{ Str::limit($comment->description, 30) }}
                             </td>
                             <td>
                                 {{ $comment->user['name'] }}

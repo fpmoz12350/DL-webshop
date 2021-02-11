@@ -59,7 +59,18 @@
                         Opis:
                     </dt>
                     <dd class="col-sm-10">
-                        {!! nl2br($role->description) !!}
+                        {{ $role->description }}
+                    </dd>
+
+                    <dt class="col-sm-2 text-right">
+                        Dopuštenja:
+                    </dt>
+                    <dd class="col-sm-10">
+                        <ul>
+                            @foreach($role->permissions as $permission)
+                            <li>{{ $permission->display_name }}</li>
+                            @endforeach
+                        </ul>
                     </dd>
 
                     <dt class="col-sm-2 text-right">

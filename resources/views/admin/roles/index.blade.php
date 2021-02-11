@@ -41,10 +41,10 @@
                                 {{ $role->id }}
                             </th>
                             <td>
-                                {{ $role->name }}
+                                {{ $role->display_name }}
                             </td>
                             <td>
-                                {{ $role->description }}
+                                {{ Str::limit($role->description, 30) }}
                             </td>
                             <td>
                             <a class="btn btn-success" href="{{ route("roles-show", $role->id) }}">

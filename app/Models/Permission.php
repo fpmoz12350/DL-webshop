@@ -9,4 +9,8 @@ class Permission extends LaratrustPermission
 {
     use SoftDeletes;
     public $guarded = [];
+
+    public function roles(){
+        return $this->belongsToMany(Role::class);
+    }
 }

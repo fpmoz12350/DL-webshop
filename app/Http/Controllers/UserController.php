@@ -52,8 +52,10 @@ class UserController extends Controller
             'password' => Hash::make($data['password']),
         ]);
 
-        $kupac = Role::find(1);
-        $user->attachRole($kupac);
+        /* $kupac = Role::find(1);
+        $user->attachRole($kupac); */
+
+        $user->roles()->sync($request->roles);
         
         #$user = User::create($data);
         #$user->roles()->attach($request->roles);

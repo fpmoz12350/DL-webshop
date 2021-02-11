@@ -69,7 +69,7 @@
                     <dd class="col-sm-10">
                         <ul>
                             @foreach($user->roles as $role)
-                            <li>{{ $role->name }}</li>
+                            <li>{{ $role->display_name }}</li>
                             @endforeach
                         </ul>
                     </dd>
