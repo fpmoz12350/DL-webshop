@@ -12,4 +12,5 @@ class Category extends Model
     use NodeTrait, HasFactory, SoftDeletes;
 
     protected $guarded = [];
+
 }

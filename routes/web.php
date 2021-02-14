@@ -36,7 +36,7 @@ Route::get('/cv', function () {
     return view('cv');
 });
 
-Route::group(['prefix' => 'admin', 'middleware' => ['role:administrator']], function() {
+Route::group(['prefix' => 'admin'], function() {
     Route::get('/home', function () {
         return view('home');
     })->middleware('auth')->name('home');
@@ -72,6 +72,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['role:administrator']], func
     Route::get('/product/edit/{id}', [ProductController::class, 'edit'])->middleware('auth')->name('products-edit');
     Route::patch('/product/update/{product}', [ProductController::class, 'update'])->middleware('auth')->name('products-update');
     Route::delete('/product/destroy/{product}', [ProductController::class, 'destroy'])->middleware('auth')->name('products-destroy');
+    
 
     Route::get('/categories', [CategoryController::class, 'index'])->middleware('auth')->name('categories-index');
     Route::get('/categories/create', [CategoryController::class, 'create'])->middleware('auth')->name('categories-create');
@@ -86,6 +87,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['role:administrator']], func
     Route::get('categories/{category}/filter', [CategoryController::class, 'filter'])->name('categories-filter');
 
     Route::get('/comments', [CommentController::class, 'index'])->middleware('auth')->name('comments-index');
+    Route::get('/comments/create', [CommentController::class, 'create'])->middleware('auth')->name('comments-create');
+    Route::post('/comments/store', [CommentController::class, 'store'])->middleware('auth')->name('comments-store');
     Route::get('/comments/show/{id}', [CommentController::class, 'show'])->middleware('auth')->name('comments-show');
     Route::delete('/comments/destroy/{comments}', [CommentController::class, 'destroy'])->middleware('auth')->name('comments-destroy');
 
@@ -98,12 +101,15 @@ Route::group(['prefix' => 'admin', 'middleware' => ['role:administrator']], func
 
 
 Route::get('/shop', [ShopController::class, 'index'])->name('shop');
-Route::get('/shop/search/{word?}', [ShopController::class, 'search'])->name('search');
+Route::get('/shop/search/{word?}/{id?}', [ShopController::class, 'search'])->name('search');
 Route::get('/shop/cart', [ShopController::class, 'showCart'])->name('cart');
 Route::get('/shop/add-to-cart', [ShopController::class, 'addToCart'])->name('add-to-cart');
 Route::get('/shop/cart-counter', [ShopController::class, 'cartCounter'])->name('cart-counter');
 Route::get('/product/{product}', [ShopController::class, 'product'])->name('product');
-Route::get('/shop/category/{category}', [ShopController::class, 'index'])->name('category');
+Route::get('/shop/category/{category}', [ShopController::class, 'category'])->name('category');
 Route::get('/shop/no-category', [ShopController::class, 'index'])->name('no-category');
+Route::get('/products/{product_id}', [ShopController::class, 'productComment'])->middleware('auth')->name('product-comment');
+Route::get('/shop/{id}', [ShopController::class, 'profile'])->middleware('auth')->name('profile');
+Route::patch('/shop/profile/{id}', [ShopController::class, 'profileUpdate'])->middleware('auth')->name('profile-update');
 
 

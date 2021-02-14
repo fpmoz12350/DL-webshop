@@ -32,6 +32,20 @@
                         <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
                     </div>
+                    <div class="form-group">
+                        @php($column = 'parent_id')
+                        <label for="{{ $column }}">Kategorija:</label>
+                      <select class="form-control" name="{{ $column }}">
+                          <option value="">-- Odaberi kategoriju --</option>
+                          @foreach($categories as $categoryAsOption)
+                          <option value="{{ $categoryAsOption->id }}">{{ str_repeat('- ', $categoryAsOption->depth) }}{{ $categoryAsOption->name }}</option>
+                          @endforeach
+                      </select>
+                     
+                        @error($column)
+                        <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
+                      </div>
                      
                     <div class="form-group">
                         @php($column = 'published')

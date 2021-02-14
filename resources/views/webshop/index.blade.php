@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-
+  <title>D&L webshop</title>
   <!-- Bootstrap core CSS -->
   <link href="{{ asset('template-shop/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
   <link href="{{ asset('admin/vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
@@ -43,18 +43,18 @@
         <div class="list-group">
           <ul class="list-group">
             @foreach($categories as $category)
-            @php($route = route('category', $category->id))
-            @if($category->depth)
-              <li class="list-group-item">
-                  <a href="{{ $route }}">{!! str_repeat('&mdash; ', $category->depth) !!}{{ $category->name }}</a>
-                </li>
-              @else
-            <li class="list-group-item font-weight-bold lead">
-              <a href="{{ $route }}">{!! str_repeat('&mdash; ', $category->depth) !!}{{ $category->name }}</a>
-            </li>
-              @endif
+              @php($route = route('category', $category->id))
+                @if($category->depth)
+                    <li class="list-group-item">
+                      <a href="{{ $route }}">{!! str_repeat('&mdash; ', $category->depth) !!}{{ $category->name }}</a>
+                    </li>
+                @else
+                  <li class="list-group-item font-weight-bold lead">
+                    <a href="{{ $route }}">{!! str_repeat('&mdash; ', $category->depth) !!}{{ $category->name }}</a>
+                  </li>
+                @endif
             @endforeach
-            </ul>
+          </ul>
          
         </div>
 
@@ -88,7 +88,7 @@
         </div>
 
         <div class="row">
-          @if(Request::has('word'))
+          @if(Request::has('word') || Request::is('shop/category/*'))
             @foreach($rezultat as $product)
               <div class="col-lg-4 col-md-6 mb-4">
                   <div class="card h-30">
@@ -135,7 +135,7 @@
   
 
     <!----------- Footer ------------>
-    <footer class="footer-bs footer-dark bg-dark">
+    <footer class="footer-bs footer-dark bg-dark fixed-bottom">
 
 
       <div class="row w-50 p-3 fixed-bottom">

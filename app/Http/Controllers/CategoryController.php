@@ -57,7 +57,7 @@ class CategoryController extends Controller
         $data = $this->setPublishedAttribute($data);
 
         $parent_id = Arr::pull($data, 'parent_id');
-
+        
         if(!$parent_id){
             Category::create($data);
         }
@@ -110,17 +110,18 @@ class CategoryController extends Controller
         $data = $this->setPublishedAttribute($data);
 
         $parent_id = Arr::pull($data, 'parent_id');
+        
         $category->update($data);
 
-        if(!$parent_id){
+        /* if(!$parent_id){
             $category->saveAsRoot();
         }
         else{
             $parent = Category::findOrFail($parent_id);
             $category->appendToNode($parent)->save();
-        }
+        } */
 
-        return redirect()->route('category-index');
+        return redirect()->route('categories-index');
     }
 
     /**

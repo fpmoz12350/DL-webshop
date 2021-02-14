@@ -1,7 +1,6 @@
 @extends('webshop.template.head')
 @extends('webshop.template.navbar')
 
-@section('content')
 <div class="container mt-3">
     <div class="offset-xl-2 col-xl-8 col-lg-12 col-md-12 col-sm-12 col-12 padding">
         <div class="card">
@@ -102,9 +101,17 @@
                         </table>
                     </div>
                 </div>
+                  <div class="form-check text-right">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckCheckedDisabled" checked disabled>
+                    <label class="form-check-label" for="flexCheckCheckedDisabled">
+                        Slažem se sa uvjetima korištenja usluge
+                    </label>
+                  </div>
             </div>
-            <div class="card-footer bg-white">
-                <p class="mb-0">...</p>
+            <div class="card-footer bg-white text-right">
+                <p class="mb-0">
+                    <button type="button" class="btn btn-primary">Potvrda narudžbe</button>
+                </p>
             </div>
         </div>
     </div>

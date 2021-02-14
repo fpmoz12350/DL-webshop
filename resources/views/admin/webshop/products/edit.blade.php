@@ -9,7 +9,7 @@
     <!-- Basic Card Example -->
     <div class="card shadow mb-4">
       <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-        <h6 class="m-0 font-weight-bold text-primary">Uređivanje proizvoda</h6>
+        <h6 class="m-0 font-weight-bold text-primary">Uređivanje proizvoda :: {{ $product->name }}</h6>
         <div class="text-right"><a class="btn btn-info" href="{{ route('products-index') }}">
             <i class="fas fa-times"></i>
           </a>
@@ -32,7 +32,7 @@
             @php($column = 'category_id')
             <label for="{{ $column }}">Kategorija:</label>
           <select class="form-control" name="{{ $column }}">
-              <option value="">-- Select category --</option>
+              <option value="">-- Odaberi kategoriju --</option>
               @foreach($categories as $categoryAsOption)
               <option value="{{ $categoryAsOption->id }}"{{ $product->$column == $categoryAsOption->id ? ' selected' : '' }}>{{ str_repeat('- ', $categoryAsOption->depth) }}{{ $categoryAsOption->name }}</option>
               @endforeach

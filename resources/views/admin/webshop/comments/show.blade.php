@@ -8,7 +8,7 @@
         <div class="card shadow mb-4">
             <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                 <h6 class="m-0 font-weight-bold text-primary">
-                    Prikaz komentara :: {{ $comment->title }}
+                    Prikaz komentara :: {{ $comment->user->name }}-{{ $comment->product->name }}
                 </h6>
                 <div class="text-right">
                     <a class="btn btn-info" href="{{ route('comments-index') }}">
@@ -37,13 +37,6 @@
                     </dt>
                     <dd class="col-sm-10">
                         {{ $comment->id }}
-                    </dd>
-
-                    <dt class="col-sm-2 text-right">
-                        Ime:
-                    </dt>
-                    <dd class="col-sm-10">
-                        {{ $comment->title }}
                     </dd>
                     
                     <dt class="col-sm-2 text-right">
@@ -78,7 +71,7 @@
                         Uređen:
                     </dt>
                     <dd class="col-sm-10">
-                        {{ $comment->updated_at ? $comment->deleted_at->format(config('custom.date.time')) : '' }}
+                        {{ $comment->updated_at->format(config('custom.date.time')) }}
                     </dd>
 
                     @if($comment->deleted_at)

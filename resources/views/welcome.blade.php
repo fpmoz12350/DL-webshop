@@ -108,20 +108,20 @@
       </div>
       -->
     <!-- /.row -->
-    </br>
-    </br>
-    </hr>
-    </br>
-    </br>
+    <br/>
+    <br/>
+    <hr/>
+    <br/>
+    <br/>
 
 
     <!-- Features Section -->
     <div class="row">
       <div class="col-lg-6">
         <h2>Volimo Vas i svijet u kojem živite.</h2>
-        </br>
+        <br/>
         <p> <strong> Razvijamo politiku poslovanja kako bismo bili primjer drugima:</strong></p>
-        </br>
+        <br/>
         <ul>
           <li>
             Svakodnevno povećavamo udio korištenja recikliranih materiala u proizvodnji.
@@ -131,7 +131,7 @@
           <li>Sa nama uvijek znate gdje se odjeća proizvodi - stanimo na kraj izrabljivanju dječje radne snage. </li>
         
         </ul>
-        </br>
+        <br/>
         <p>   <strong>Promjena je u nama. Vrijeme je da mijenjamo modu. Zajedno.</strong></p>
       </div> 
       <div class="col-lg-6">

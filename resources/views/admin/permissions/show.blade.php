@@ -6,7 +6,7 @@
         <div class="card shadow mb-4">
             <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                 <h6 class="m-0 font-weight-bold text-primary">
-                    Prikaz role :: {{ $permission->display_name }}
+                    Prikaz dopuštenja :: {{ $permission->display_name }}
                 </h6>
                 <div class="text-right">
                     <a class="btn btn-info" href="{{ route('permissions-index') }}">

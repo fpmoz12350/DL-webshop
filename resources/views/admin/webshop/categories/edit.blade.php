@@ -19,10 +19,10 @@
                     @csrf
                     @method('PATCH')
                     <div class="form-group">
-                        <label for="display_name">Naziv:</label>
-                        <input type="text" class="form-control" name="display_name" value="{{ $category->name }}">
+                        <label for="name">Naziv:</label>
+                        <input type="text" class="form-control" name="name" value="{{ $category->name }}">
 
-                        @error('display_name')
+                        @error('name')
                         <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
                     </div>

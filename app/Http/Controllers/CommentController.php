@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests\CommentRequest;
 use App\Models\Comment;
+use App\Models\Product;
 
 class CommentController extends Controller
 {
@@ -27,7 +28,10 @@ class CommentController extends Controller
      */
     public function create()
     {
-        //
+        $comment = new Comment;
+        $products = Product::all();
+
+        return view('admin.webshop.comments.create', compact(['products']));
     }
 
     /**
@@ -38,7 +42,12 @@ class CommentController extends Controller
      */
     public function store(CommentRequest $request)
     {
-        //
+        $data = $request->all();
+        $data["user_id"] = auth()->user()->id;
+
+        $comment = Comment::create($data);
+
+        return redirect()->route('comments-index');
     }
 
     /**

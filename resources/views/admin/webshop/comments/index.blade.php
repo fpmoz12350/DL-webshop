@@ -10,6 +10,12 @@
                 <h6 class="m-0 font-weight-bold text-primary">
                     Izlistanje komentara
                 </h6>
+                <div class="text-right">
+                <a class="btn btn-warning" href="{{ route("comments-create") }}">
+                        <i class="fas fa-plus-square">
+                        </i>
+                    </a>
+                </div>
             </div>
             <div class="card-body">
                 <table class="table table-striped table-bordered">
@@ -17,9 +23,6 @@
                         <tr>
                             <th scope="col">
                                 #
-                            </th>
-                            <th scope="col">
-                                Ime
                             </th>
                             <th scope="col">
                                 Opis
@@ -41,9 +44,6 @@
                             <th scope="row">
                                 {{ $comment->id }}
                             </th>
-                            <td>
-                                {{ $comment->title }}
-                            </td>
                             <td>
                                 {{ Str::limit($comment->description, 30) }}
                             </td>
