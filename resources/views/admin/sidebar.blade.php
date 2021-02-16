@@ -18,20 +18,13 @@
     <!-- Divider -->
     <hr class="sidebar-divider">
 
+    @if (Auth::user()->hasRole(['administrator', 'moderator', 'kupac']))
 
-    <!-- Nav Item - Pages Collapse Menu -->
     <li class="nav-item d-inline-flex {{ Str::startsWith(Route::currentRouteName(), 'user') ? 'active' : '' }}">
     <a class="nav-link" href="{{ route('users-index') }}">
             <i class="fas fa-user-friends"></i>
             <span>Korisnici</span>
         </a>
-        {{-- <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">Custom Components:</h6>
-                <a class="collapse-item" href="buttons.html">Buttons</a>
-                <a class="collapse-item" href="cards.html">Cards</a>
-            </div>
-        </div> --}}
     </li>
 
     <li class="nav-item {{ Str::startsWith(Route::currentRouteName(), 'roles') ? 'active' : '' }}">
@@ -68,14 +61,14 @@
             <span>Komentari</span>
         </a>
     </li>
-
+    @endif
     <li class="nav-item {{ Str::startsWith(Route::currentRouteName(), 'orders') ? 'active' : '' }}">
         <a class="nav-link" href="{{ route('orders-index') }}">
             <i class="fas fa-file-invoice"></i>
             <span>Narudžbe</span>
         </a>
     </li>
-
+    
     <!-- Divider -->
     {{-- <hr class="sidebar-divider d-none d-md-block"> --}}
 

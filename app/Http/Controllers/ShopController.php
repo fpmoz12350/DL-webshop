@@ -131,8 +131,9 @@ class ShopController extends Controller
     public function profile($id)
     {
         $user = User::findOrFail($id);
+        $user_orders = $user->orders();
 
-        return view('webshop.profile', compact('user'));
+        return view('webshop.profile', compact('user', 'user_orders'));
     }
 
     public function showCart()
@@ -154,7 +155,7 @@ class ShopController extends Controller
     }
    
     public function addToCart(){
-        session()->forget('categories');
+        /* session()->forget('categories');
         session()->forget('selectedCategory');
 
         $product = Product::findOrFail(request()->product_id);
@@ -162,10 +163,19 @@ class ShopController extends Controller
             $quantity = request()->quantity;
             Cart::add($product->id, $product->name, $quantity, $product->price, 0);
 
-            return __('web_shop.add_to_cart_success', ['product_name' => $product->name, 'quantity' => $quantity]);
-        }
+            return __('web_shop.add_to_cart_success', ['product_name' => $product->name, 'quantity' => $quantity]); 
+        }*/
+
+        /* Cart::add([
+            ['id' => '1', 'name' => 'Product 1', 'qty' => 1, 'price' => 10.00, 'weight' => 550],
+          ]);
+
+        Cart::store('id'); */
+
+        dd(Cart::content());
         
-        return redirect()->route('webshop.product');
+        return redirect()->route('product', 1);
+        
     }
 
     public function cartCounter()

@@ -62,10 +62,13 @@
                             Broj narudžbe
                         </th>
                         <th scope="col">
-                            Artikli
+                            Količina
                         </th>
                         <th scope="col">
                             Cijena
+                        </th>
+                        <th scope="col">
+                            Ukupno
                         </th>
                         <th scope="col">
                             Isporučeno
@@ -73,7 +76,31 @@
                     </tr>
                 </thead>
                 <tbody>
-
+                    @foreach($user_orders as $order)
+                        <tr>
+                            <th scope="row">
+                                {{ $order->id }}
+                            </th>
+                            <td>
+                                {{ $order->qty }}
+                            </td>
+                            <td>
+                                {{ $order->price }}
+                            </td>
+                            <td>
+                                {{ $order->total }}
+                            </td>
+                            <td>
+                                @if($order->delivered)
+                                <i class="fas fa-check fa-2x text-success">
+                                </i>
+                                @else
+                                <i class="fas fa-times fa-2x text-danger">
+                                </i>
+                                @endif
+                            </td>
+                        </tr>
+                        @endforeach
                 </tbody>
             </table>
         </div>
