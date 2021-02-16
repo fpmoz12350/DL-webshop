@@ -16,10 +16,8 @@ class CreateOrdersTable extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
-            $table->integer('qty');
-            $table->decimal('price', 8, 2)->default(0.00);
-            $table->decimal('total', 8, 2)->default(0.00);
-            $table->boolean('delivered')->default(false);
+            $table->integer('total');
+            $table->tinyInteger('delivered');
             $table->softDeletes();
             $table->timestamps();
 

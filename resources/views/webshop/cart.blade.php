@@ -16,7 +16,6 @@
                         <h5 class="mb-3">Od:</h5>
                         <h3 class="text-dark mb-1">D&L webshop</h3>
                         <div>Email: dl-webshop@gmail.com</div>
-                        <div>Broj telefona: +91 9897 989 989</div>
                     </div>
                     <div class="col-sm-6 ">
                         <h5 class="mb-3">Za:</h5>
@@ -28,21 +27,38 @@
                     <table class="table table-striped">
                         <thead>
                             <tr>
-                                <th class="center">#</th>
-                                <th>Artikal</th>
+                                <th>Ime</th>
                                 <th class="right">Cijena</th>
                                 <th class="center">Količina</th>
-                                <th class="right">Ukupno</th>
+                                <th class="right">Ukloni</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($cartItems as $item)
+                            @foreach($cartItems as $cartItem)
                             <tr>
-                                <td class="no">{{ $item->id }}</td>
-                                <td class="text-left">{{ $item->name }}</td>
-                                <td class="unit">{{ number_format($item->price, 2, ',', ' ') }} KM</td>
-                                <td class="qty">{{ $item->qty }}</td>
-                                <td class="total">{{ number_format($item->price * $item->qty, 2, ',', ' ') }}</td>
+                                <td>{{$cartItem->name}}</td>
+                                <td>{{$cartItem->price}} KM</td>
+                                <td>
+                                    <form method="POST" action="{{ route('cart.update', $cartItem->rowId) }}">
+                                        @csrf
+                                        @method('PUT')
+                                        <input name="qty" type="text" value="{{$cartItem->qty}}">
+                                        <button type="submit" class="btn btn-primary btn-sm mb-1">
+                                            <i class="fas fa-check">
+                                            </i>
+                                        </button>
+                                </td>
+                                <td>
+                                    </form>
+                                    <form action="{{route('cart.destroy',$cartItem->rowId)}}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-danger btn-sm">
+                                            <i class="fas fa-times">
+                                            </i>
+                                        </button>
+                                    </form>
+                                </td>
                             </tr>
                             @endforeach
                         </tbody>
@@ -51,7 +67,7 @@
                 <div class="row">
                     <div class="col-lg-4 col-sm-5">
                     </div>
-                    <div class="col-lg-4 col-sm-5 ml-auto">
+                    <div class="col-lg-6 col-sm-8 ml-auto">
                         <table class="table table-clear">
                             <tbody>
                                 <tr>
@@ -77,16 +93,17 @@
                         </table>
                     </div>
                 </div>
-                  <div class="form-check text-right">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckCheckedDisabled" checked disabled>
+                <div class="form-check text-right">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckCheckedDisabled" checked
+                        disabled>
                     <label class="form-check-label" for="flexCheckCheckedDisabled">
                         Slažem se sa uvjetima korištenja usluge
                     </label>
-                  </div>
+                </div>
             </div>
             <div class="card-footer bg-white text-right">
                 <p class="mb-0">
-                    <button type="button" class="btn btn-primary">Potvrda narudžbe</button>
+                    <a href="{{ route('store-order') }}"><button type="button" class="btn btn-primary">Potvrda narudžbe</button></a>
                 </p>
             </div>
         </div>

@@ -49,24 +49,10 @@
                     </dd>
 
                     <dt class="col-sm-2 text-right">
-                        Količina:
-                    </dt>
-                    <dd class="col-sm-10">
-                        {{ $order->qty }}
-                    </dd>
-
-                    <dt class="col-sm-2 text-right">
-                        Cijena:
-                    </dt>
-                    <dd class="col-sm-10">
-                        {{ $order->price }}
-                    </dd>
-
-                    <dt class="col-sm-2 text-right">
                         Ukupno:
                     </dt>
                     <dd class="col-sm-10">
-                        {{ $order->total }}
+                        {{ $order->total }} KM
                     </dd>
 
                     <dt class="col-sm-2 text-right">

@@ -30,14 +30,21 @@
     <div class="row">
 
       <div class="col-lg-3">
-
-        <h1 class="my-4">D&L webshop</h1>
+        <br/>
+        <br/>
         <div class="input-group mb-3">
           <form action="{{ route('search') }}" method="GET">
-            <input name="word" type="text" class="form-control" placeholder="Pronađite proizvod..." aria-describedby="basic-addon2">
-              <button class="btn btn-secondary">
-                  Pretraži
-              </button>
+              <div class="input-group mb-3">
+                <input type="text" class="form-control" name="word" placeholder="Pronađite proizvod..." aria-describedby="basic-addon2">
+                <div class="input-group-append">
+                  <span class="input-group-icon" id="basic-addon2">
+                    <button class="btn btn-secondary" type="submit">
+                      <i class="fas fa-search">
+                      </i>
+                    </button>
+                </span>
+                </div>
+              </div>
         </form>
         </div>
         <div class="list-group">

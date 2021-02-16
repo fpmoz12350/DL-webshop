@@ -10,6 +10,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactController;
@@ -105,12 +106,14 @@ Route::group(['prefix' => 'admin'], function() {
     Route::get('/orders/edit/{id}', [OrderController::class, 'edit'])->middleware('auth')->name('orders-edit');
     Route::patch('/orders/update/{orders}', [OrderController::class, 'update'])->middleware('auth')->name('orders-update');
     Route::delete('/orders/destroy/{orders}', [OrderController::class, 'destroy'])->middleware('auth')->name('orders-destroy');
+
+    Route::post('toggledeliver/{orderId}', [OrderController::class, 'toggleDeliver'])->middleware('auth')->name('toggle-deliver');
 });
 
 
 Route::get('/shop', [ShopController::class, 'index'])->name('shop');
 Route::get('/shop/search/{word?}/{id?}', [ShopController::class, 'search'])->name('search');
-Route::get('/shop/cart', [ShopController::class, 'showCart'])->name('cart');
+#Route::get('/shop/cart', [ShopController::class, 'showCart'])->name('cart');
 Route::get('/shop/add-to-cart', [ShopController::class, 'addToCart'])->name('add-to-cart');
 Route::get('/shop/cart-counter', [ShopController::class, 'cartCounter'])->name('cart-counter');
 Route::get('/product/{product}', [ShopController::class, 'product'])->name('product');
@@ -119,6 +122,11 @@ Route::get('/shop/no-category', [ShopController::class, 'index'])->name('no-cate
 Route::get('/products/{product_id}', [ShopController::class, 'productComment'])->middleware('auth')->name('product-comment');
 Route::get('/shop/{id}', [ShopController::class, 'profile'])->middleware('auth')->name('profile');
 Route::patch('/shop/profile/{id}', [ShopController::class, 'profileUpdate'])->middleware('auth')->name('profile-update');
+
+Route::get('/shop/cart/store-order', [ShopController::class, 'storeOrder'])->middleware('auth')->name('store-order');
+
+Route::resource('/cart', CartController::class);
+Route::get('/cart/add-item/{id}', [CartController::class, 'addItem'])->name('cart.addItem');
 
 Route::get('/orders/create', [OrderController::class, 'create'])->middleware('auth')->name('orders-create');
 Route::get('/orders/store/', [OrderController::class, 'store'])->middleware('auth')->name('orders-store');

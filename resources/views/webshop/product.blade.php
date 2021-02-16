@@ -15,28 +15,41 @@
       <div class="row mt-4">
         <div class="w-100"></div>
         <div class="input-group col-md-6 d-flex mb-3">
-          <span class="input-group-btn mr-2">
+          <form action="{{ route('cart.addItem', $product->id) }}"
+              method="GET">
+          <span class="input-group-btn">
             <button type="button" class="quantity-left-minus btn" data-type="minus" data-field="">
               <i class="fas fa-minus"></i>
             </button>
           </span>
-          <input type="text" id="quantity" name="quantity" class="form-control input-number" value="1" min="1"
+          <input type="text" id="quantity" name="qty" class="form-control input-number" value="1" min="1"
             max="100">
-          <span class="input-group-btn ml-2">
+          <span class="input-group-btn">
             <button type="button" class="quantity-right-plus btn" data-type="plus" data-field="">
               <i class="fas fa-plus"></i>
             </button>
           </span>
+          <br>
+          <br>
+          <button type="submit" class="btn btn-primary">
+            Dodaj u košaricu
+        </button>
+        </form>
         </div>
         <br/>
       </div>
         <div style="display:inline-block;">
-          <form action="{{ route('add-to-cart') }}"
+          {{-- <form action="{{ route('add-to-cart') }}"
               method="GET">
               <button class="btn btn-primary" id="add-to-cart">
                 Dodaj u košaricu
               </button>
-          </form>
+          </form> --}}
+          {{-- <a href="{{ route('cart.addItem', $product->id) }}">
+            <button type="button" class="btn btn-primary">
+                Dodaj u košaricu
+            </button>
+        </a> --}}
         </div>
     </div>
   </div>
