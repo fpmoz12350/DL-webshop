@@ -32,6 +32,10 @@ Route::get('/o-nama', [HomeController::class, 'aboutUs'])->name('about_us');
 Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
 Route::get('/faq', [HomeController::class, 'faq'])->name('faq');
 Route::get('/terms', [HomeController::class, 'terms'])->name('terms');
+Route::get('/article1', [HomeController::class, 'article1'])->name('article1');
+Route::get('/article2', [HomeController::class, 'article2'])->name('article2');
+Route::get('/article3', [HomeController::class, 'article3'])->name('article3');
+
 
 Route::get('/cv', function () {
     return view('cv');
@@ -115,15 +119,8 @@ Route::get('/shop/no-category', [ShopController::class, 'index'])->name('no-cate
 Route::get('/products/{product_id}', [ShopController::class, 'productComment'])->middleware('auth')->name('product-comment');
 Route::get('/shop/{id}', [ShopController::class, 'profile'])->middleware('auth')->name('profile');
 Route::patch('/shop/profile/{id}', [ShopController::class, 'profileUpdate'])->middleware('auth')->name('profile-update');
-<<<<<<< HEAD
+
 Route::get('/orders/create', [OrderController::class, 'create'])->middleware('auth')->name('orders-create');
 Route::get('/orders/store/', [OrderController::class, 'store'])->middleware('auth')->name('orders-store');
 Route::get('contact', [ContactController::class, 'contact'])->name('contact');
 Route::post('send-message', [ContactController::class, 'sendEmail'])->name('contact.send');
-=======
-
-Route::get('contact', [ContactController::class, 'contact'])->name('contact');
-Route::post('send-message', [ContactController::class, 'sendEmail'])->name('contact.send');
-
-
->>>>>>> 3bfb39346943c88139772041480fcd55d28369f8

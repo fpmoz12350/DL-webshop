@@ -1,16 +1,11 @@
 <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark ">
     <div class="container">
-<<<<<<< HEAD
-    <a class="navbar-brand" href="{{ route('welcome') }}">     
-        <img src="https://scontent.ftzl2-1.fna.fbcdn.net/v/t1.15752-9/150787135_708231369849355_7450508749503465806_n.png?_nc_cat=102&ccb=3&_nc_sid=ae9488&_nc_eui2=AeGogRF4FEQNpOIHBVKZtiIGeQThYdObudB5BOFh05u50DR7yg_IzAGGx7r6f8rPJ0EOnC4bwcSRXpFwzB6ykjU_&_nc_ohc=M_EnraRRrnsAX9l6QI7&_nc_ht=scontent.ftzl2-1.fna&oh=aa9d5a66999579593832cb8edfd2a848&oe=6051DBB8" style="max-width:150px" alt="LOGO">
-        </a>
 
-=======
     <a class="navbar-brand" href="{{ route('welcome') }}"> 
       <a class="navbar-brand" href="{{ route('welcome') }}">     
-        <img src="https://scontent.ftzl2-1.fna.fbcdn.net/v/t1.15752-9/150787135_708231369849355_7450508749503465806_n.png?_nc_cat=102&ccb=3&_nc_sid=ae9488&_nc_eui2=AeGogRF4FEQNpOIHBVKZtiIGeQThYdObudB5BOFh05u50DR7yg_IzAGGx7r6f8rPJ0EOnC4bwcSRXpFwzB6ykjU_&_nc_ohc=M_EnraRRrnsAX9l6QI7&_nc_ht=scontent.ftzl2-1.fna&oh=aa9d5a66999579593832cb8edfd2a848&oe=6051DBB8" style="max-width:150px" alt="LOGO">
+        <img src="https://scontent.ftzl2-1.fna.fbcdn.net/v/t1.15752-9/150787135_708231369849355_7450508749503465806_n.png?_nc_cat=102&ccb=3&_nc_sid=ae9488&_nc_eui2=AeGogRF4FEQNpOIHBVKZtiIGeQThYdObudB5BOFh05u50DR7yg_IzAGGx7r6f8rPJ0EOnC4bwcSRXpFwzB6ykjU_&_nc_ohc=M_EnraRRrnsAX9l6QI7&_nc_ht=scontent.ftzl2-1.fna&oh=aa9d5a66999579593832cb8edfd2a848&oe=6051DBB8" style="max-width:120px" alt="LOGO">
         </a>
->>>>>>> 3bfb39346943c88139772041480fcd55d28369f8
+
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -63,14 +58,6 @@
           <li class="nav-item">
             <a class="nav-link mt-1" href="{{ route('cart') }}"><i class="fas fa-shopping-cart"></i></a>
           </li>
-        <!--
-          <li class="nav-item">
-            <a class="nav-link" href="about.html">O nama</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="contact.html">Kontakt</a>
-          </li>
-          -->
         </ul>
       </div>
     </div>
