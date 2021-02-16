@@ -4,3 +4,5 @@
 
 <script src="{{ asset('template-shop/vendor/jquery/jquery.min.js') }}"></script>
 <script src="{{ asset('template-shop/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+
+@yield('javascript')

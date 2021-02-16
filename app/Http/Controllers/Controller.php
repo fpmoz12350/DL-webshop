@@ -22,4 +22,16 @@ class Controller extends BaseController
         
         return $data;
     }
+
+    protected function setDeliveredAttribute($data)
+    {
+        if(array_key_exists('delivered', $data)){
+            $data['delivered'] = 1;
+        }
+        else{
+            $data['delivered'] = 0;
+        }
+        
+        return $data;
+    }
 }

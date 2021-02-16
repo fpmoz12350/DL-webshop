@@ -7,7 +7,7 @@
 
         <div class="card shadow mb-4">
             <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                <h6 class="m-0 font-weight-bold text-primary">Stvaranje kategorije</h6>
+                <h6 class="m-0 font-weight-bold text-primary">Stvaranje komentara</h6>
                 <div class="text-right"><a class="btn btn-info" href="{{ route('comments-index') }}">
                         <i class="fas fa-times"></i>
                     </a>

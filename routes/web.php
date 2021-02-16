@@ -37,6 +37,7 @@ Route::get('/cv', function () {
     return view('cv');
 });
 
+
 Route::group(['prefix' => 'admin'], function() {
     Route::get('/home', function () {
         return view('home');
@@ -94,6 +95,8 @@ Route::group(['prefix' => 'admin'], function() {
     Route::delete('/comments/destroy/{comments}', [CommentController::class, 'destroy'])->middleware('auth')->name('comments-destroy');
 
     Route::get('/orders', [OrderController::class, 'index'])->middleware('auth')->name('orders-index');
+    Route::get('/orders/create', [OrderController::class, 'create'])->middleware('auth')->name('orders-create');
+    Route::get('/orders/store/', [OrderController::class, 'store'])->middleware('auth')->name('orders-store');
     Route::get('/orders/show/{id}', [OrderController::class, 'show'])->middleware('auth')->name('orders-show');
     Route::get('/orders/edit/{id}', [OrderController::class, 'edit'])->middleware('auth')->name('orders-edit');
     Route::patch('/orders/update/{orders}', [OrderController::class, 'update'])->middleware('auth')->name('orders-update');
@@ -112,7 +115,15 @@ Route::get('/shop/no-category', [ShopController::class, 'index'])->name('no-cate
 Route::get('/products/{product_id}', [ShopController::class, 'productComment'])->middleware('auth')->name('product-comment');
 Route::get('/shop/{id}', [ShopController::class, 'profile'])->middleware('auth')->name('profile');
 Route::patch('/shop/profile/{id}', [ShopController::class, 'profileUpdate'])->middleware('auth')->name('profile-update');
+<<<<<<< HEAD
 Route::get('/orders/create', [OrderController::class, 'create'])->middleware('auth')->name('orders-create');
 Route::get('/orders/store/', [OrderController::class, 'store'])->middleware('auth')->name('orders-store');
 Route::get('contact', [ContactController::class, 'contact'])->name('contact');
 Route::post('send-message', [ContactController::class, 'sendEmail'])->name('contact.send');
+=======
+
+Route::get('contact', [ContactController::class, 'contact'])->name('contact');
+Route::post('send-message', [ContactController::class, 'sendEmail'])->name('contact.send');
+
+
+>>>>>>> 3bfb39346943c88139772041480fcd55d28369f8
