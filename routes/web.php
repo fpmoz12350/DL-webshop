@@ -12,6 +12,7 @@ use App\Http\Controllers\CommentController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ContactController;
 
 
 
@@ -111,5 +112,7 @@ Route::get('/shop/no-category', [ShopController::class, 'index'])->name('no-cate
 Route::get('/products/{product_id}', [ShopController::class, 'productComment'])->middleware('auth')->name('product-comment');
 Route::get('/shop/{id}', [ShopController::class, 'profile'])->middleware('auth')->name('profile');
 Route::patch('/shop/profile/{id}', [ShopController::class, 'profileUpdate'])->middleware('auth')->name('profile-update');
-
-
+Route::get('/orders/create', [OrderController::class, 'create'])->middleware('auth')->name('orders-create');
+Route::get('/orders/store/', [OrderController::class, 'store'])->middleware('auth')->name('orders-store');
+Route::get('contact', [ContactController::class, 'contact'])->name('contact');
+Route::post('send-message', [ContactController::class, 'sendEmail'])->name('contact.send');

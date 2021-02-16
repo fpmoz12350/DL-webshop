@@ -54,41 +54,76 @@
 
     <!-- Contact Form -->
     <!-- In order to set the email address and subject line for the contact form go to the bin/contact_me.php file. -->
-    <div class="row">
-      <div class="col-lg-8 mb-4">
-        <h3>Pošaljite nam poruku</h3>
-        <br>
+    <form method="POST" action="{{route('contact.send')}}" enctype="multipart/form-data">
+    @csrf
 
-        <form name="sentMessage" id="contactForm" novalidate>
-          <div class="control-group form-group">
-            <div class="controls">
-              <label>Ime i prezime:</label>
-              <input type="text" class="form-control" id="name" required data-validation-required-message="Please enter your name.">
-              <p class="help-block"></p>
+    <div class="row">
+    <h3>Pošaljite nam poruku</h3>
+      <br>
+      <br>
+    </div>
+    <br>
+    <div class="row">
+
+
+          @if(Session::has('message_sent'))
+
+        
+            <div class="alert alert-success " role="alert"  >
+          {{Session::get('messege_sent')}} 
+          Vaša poruka je uspješno poslana! Netko iz našeg tima će Vam se javiti u najkraćem mogućem roku.
             </div>
-          </div>
-          
-          <div class="control-group form-group">
+        @endif
+
+        </div>
+        
+        <div class="row">
+
+
+      <div class="col-sm-3 mb-4">       
+     
+        
+
+            <form name="sentMessage" id="contactForm" novalidate>
+              <div class="control-group form-group">
+                <div class="controls">
+                  <label>Ime i prezime:</label>
+                  <input type="text" class="form-control" name="name" required data-validation-required-message="Please enter your name.">
+                    <p class="help-block"></p>
+                </div>
+                </div>
+             </div>
+
+          <div class="control-group form-group col-sm-3 mb-4">
             <div class="controls">
               <label>Email adresa:</label>
-              <input type="email" class="form-control" id="email" required data-validation-required-message="Please enter your email address.">
+              <input type="email" action="{{route('contact.send')}}" class="form-control" name="email" required data-validation-required-message="Please enter your email address.">
             </div>
           </div>
-          <div class="control-group form-group">
+
+          </div>
+          <div class="row">
+          <div class="control-group form-group col-sm-6 mb-4">
             <div class="controls">
               <label>Poruka:</label>
-              <textarea rows="10" cols="100" class="form-control" id="message" required data-validation-required-message="Please enter your message" maxlength="999" style="resize:none"></textarea>
+              <textarea rows="10" cols="100" class="form-control" name="message" required data-validation-required-message="Please enter your message" maxlength="999" style="resize:none"></textarea>
             </div>
           </div>
           <div id="success"></div>
+          </div>
           <!-- For success/fail messages -->
-          <button type="submit" class="btn btn-primary pull-right" id="sendMessageButton">Pošalji</button>
+          <div clas="row">
+          <div class="col-sm-1 mb-4">
+          </div>
+          <button type="submit" class="col-sm-6  btn btn-primary   pull-right" id="sendMessageButton">Pošalji</button>
+          </div>
         </form>
       </div>
 
     </div>
     <!-- /.row -->
-
+    </form >
+    </form>
   </div>
   <!-- /.container -->
 
