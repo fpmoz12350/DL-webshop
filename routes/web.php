@@ -133,6 +133,8 @@ Route::get('/shop/cart/store-order', [ShopController::class, 'storeOrder'])->mid
 
 Route::resource('/cart', CartController::class);
 Route::get('/cart/add-item/{id}', [CartController::class, 'addItem'])->name('cart.addItem');
+Route::get('/shop/add-to-cart', [ShopController::class, 'addToCart'])->name('add-to-cart');
+Route::get('/shop/cart-counter', [ShopController::class, 'cartCounter'])->name('cart-counter');
 
 Route::get('/orders/create', [OrderController::class, 'create'])->middleware('auth')->name('orders-create');
 Route::get('/orders/store/', [OrderController::class, 'store'])->middleware('auth')->name('orders-store');

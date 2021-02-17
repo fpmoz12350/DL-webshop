@@ -74,7 +74,7 @@
                             Ukupno
                         </th>
                         <th scope="col">
-                            Isporučeno
+                            Poslano
                         </th>
                     </tr>
                 </thead>

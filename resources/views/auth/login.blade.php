@@ -72,6 +72,7 @@
             </div>
         </div>
     </div>
+    <br>
     <div class="fixed-bottom">
         @include("webshop.template.footer")
     </div>
