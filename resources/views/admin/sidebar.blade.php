@@ -18,7 +18,7 @@
     <!-- Divider -->
     <hr class="sidebar-divider">
 
-    @if (Auth::user()->hasRole(['administrator', 'moderator', 'kupac']))
+    @if (Auth::user()->hasRole(['administrator', 'moderator']))
 
     <li class="nav-item d-inline-flex {{ Str::startsWith(Route::currentRouteName(), 'user') ? 'active' : '' }}">
     <a class="nav-link" href="{{ route('users-index') }}">

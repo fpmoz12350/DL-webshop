@@ -18,20 +18,24 @@
             <div class="card-body">
                 <dl class="row">
                     <dt class="col-sm-2">
-                        <form action="{{ route('roles-destroy', $role->id) }}" method="POST">
-                            @csrf
-                            @method('DELETE')
-                            <button class="btn btn-danger">
-                                <i class="fas fa-times">
-                                </i>
-                            </button>
-                        </form>
+                        @if (Auth::user()->hasRole(['administrator']))
+                            <form action="{{ route('roles-destroy', $role->id) }}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button class="btn btn-danger">
+                                    <i class="fas fa-times">
+                                    </i>
+                                </button>
+                            </form>
+                        @endif
                     </dt>
                     <dd class="col-sm-10 text-right">
-                        <a class="btn btn-primary" href="{{ route('roles-edit', $role->id) }}">
-                            <i class="fas fa-edit">
-                            </i>
-                        </a>
+                        @if (Auth::user()->hasRole(['administrator']))
+                            <a class="btn btn-primary" href="{{ route('roles-edit', $role->id) }}">
+                                <i class="fas fa-edit">
+                                </i>
+                            </a>
+                        @endif
                     </dd>
 
                     <dt class="col-sm-2 text-right">
@@ -97,20 +101,25 @@
                     @endif
 
                     <dt class="col-sm-2">
-                        <form action="{{ route('roles-destroy', $role->id) }}" method="POST">
-                            @csrf
-                            @method('DELETE')
-                            <button class="btn btn-danger">
-                                <i class="fas fa-times">
-                                </i>
-                            </button>
-                        </form>
+                        @if (Auth::user()->hasRole(['administrator']))
+                            <form action="{{ route('roles-destroy', $role->id) }}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button class="btn btn-danger">
+                                    <i class="fas fa-times">
+                                    </i>
+                                </button>
+                            </form>
+                        @endif
                     </dt>
+            
                     <dd class="col-sm-10 text-right">
-                        <a class="btn btn-primary" href="{{ route('roles-edit', $role->id) }}">
-                            <i class="fas fa-edit">
-                            </i>
-                        </a>
+                        @if (Auth::user()->hasRole(['administrator']))
+                            <a class="btn btn-primary" href="{{ route('roles-edit', $role->id) }}">
+                                <i class="fas fa-edit">
+                                </i>
+                            </a>
+                        @endif
                     </dd>
                 </dl>
             </div>
