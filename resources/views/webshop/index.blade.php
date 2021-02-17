@@ -27,6 +27,8 @@
   <!-- Page Content -->
   <div class="container">
 
+  <br>
+
     <div class="row">
 
       <div class="col-lg-3">
@@ -74,7 +76,7 @@
               <img class="d-block img-fluid" src="https://cdn.shopify.com/s/files/1/1774/4785/files/HR_desktop_banner_znizanje_1.jpg?360" alt="First slide">
             </div>
             <div class="carousel-item">
-              <img class="d-block img-fluid" src="https://cdn.shopify.com/s/files/1/0118/6352/files/1_55d7f313-bff6-44a4-adaa-4e126fb983f8_2048x2048.jpg?v=1552320224" alt="Second slide">
+              <img class="d-block img-fluid" src="https://scontent-vie1-1.xx.fbcdn.net/v/t1.15752-9/151189348_720550861989580_5388725579806796943_n.jpg?_nc_cat=111&ccb=3&_nc_sid=ae9488&_nc_eui2=AeEn-zTDbTK9Qghokf82-rvkgTP3jaYno76BM_eNpiejvlAhEMxLRkBBCiZZj4rinIZfUzjuorN5H6dCr4hP1JWY&_nc_ohc=jteVeVa_zOAAX_4pqIB&_nc_ht=scontent-vie1-1.xx&oh=ff441c5d12205025df6bf09f8887c9da&oe=6051482B" alt="Second slide">
             </div>
           </div>
           <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">

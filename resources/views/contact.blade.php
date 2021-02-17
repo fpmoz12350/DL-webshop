@@ -26,22 +26,20 @@
         <p>
         <br>
         76270 Orašje
-          <br>
-          <br>
-
-          Poduzetnička Zona
-          <br>
+        <br>
+        <br>
+        Poduzetnička Zona
+        <br>
         </p>
         <p>
-          <abbr title="Phone">Telefon:</abbr> (123) 456-7890
+        Telefon: (123) 456-7890
         </p>
         <p>
-          <abbr title="Email">Email:</abbr>
-          <a href="mailto:info@dlwebshop.com">info@dlwebshop.com
-          </a>
+        Email:
+        <a href="mailto:info@dlwebshop.com">info@dlwebshop.com </a>
         </p>
         <p>
-          <abbr title="Hours">Radno vrijeme:</abbr> Pon-Pet: 9:00 - 17:00
+        Radno vrijeme:  Pon-Pet: 9:00 - 17:00
         </p>
       </div>
     </div>
@@ -53,7 +51,7 @@
 
 
     <!-- Contact Form -->
-    <!-- In order to set the email address and subject line for the contact form go to the bin/contact_me.php file. -->
+    
     <form method="POST" action="{{route('contact.send')}}" enctype="multipart/form-data">
     @csrf
 

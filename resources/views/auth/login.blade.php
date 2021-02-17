@@ -3,6 +3,8 @@
 @section('content')
 <div class="container">
     @include("webshop.template.navbar")
+    <br>
+    <br>
     <div class="row justify-content-center pt-4 mt-5">
         <div class="col-md-8">
             <div class="card">

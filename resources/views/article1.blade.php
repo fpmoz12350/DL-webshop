@@ -16,7 +16,7 @@
 
   <!-- Navigation -->
   @include("webshop.template.navbar")
-
+  
   <!--Page content--><!-- Page Content -->
   <div class="container">
 

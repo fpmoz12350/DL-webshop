@@ -3,8 +3,12 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center pt-4 mt-5">
-        @include("webshop.template.navbar")
+            @include("webshop.template.navbar")
+        
+        
         <div class="col-md-8">
+        <br>
+        <br>
             <div class="card">
                 <div class="card-header">Registrirajte se</div>
 
@@ -67,15 +71,21 @@
                                 <button type="submit" class="btn btn-primary">
                                     Pošalji
                                 </button>
+                                
                             </div>
                         </div>
-                    </form>
+                    </form>     
+                    
                 </div>
             </div>
-        </div>
     </div>
-    <div class="fixed-bottom">
+               
+</div>
+     <br>
+     <br>
+     <br>
+   </div>
         @include("webshop.template.footer")
-    </div>
+    
 </div>
 @endsection

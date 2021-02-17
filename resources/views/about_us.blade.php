@@ -6,8 +6,7 @@
 <!-- Page Content -->
 <div class="container">
 
-    <!-- Page Heading/Breadcrumbs -->
-    <h1 class="mt-4 mb-3">O nama </h1>
+    
     <br>
     <hr>
     <br>
@@ -25,19 +24,56 @@
       <b>O TEHNOLOGIJAMA</b>
 
       <br>
-      <br>
+      <p class="text-justify">
+Tehnologije koje smo koristitili su PHP, točnije Laravel framework u kombinaciji sa Bootstrapom kako bismo osigurali responzivno sučelje, lako za korištenje svim vrstama korisnika s obzirom na njihovu ulogu. Za implementaciju određenih dijelova korišeni su i JavaScript i AJAX. Podaci o korisnicima, rolama, permisijama i proizvodima će spremljeni su u SQL bazu podataka.
+</p>
+<br>
+<br>
+<div class="row">
 
-Tehnologije koje namjeravamo koristiti su PHP, točnije Laravel framework u kombinaciji sa bootstrapom kako bismo osigurali responzivno sučelje, lako za korištenje svim vrstama korisnika s obzirom na njihovu ulogu. Planirana je implementacija određenih dijelova i u JavaScriptu i AJAX-u. Podaci o korisnicima, rolama, permisijama i proizvodima će biti spremljeni u SQL bazu podataka.
+     
+  <div class="col-sm-1">
+    </div>
+
+  <div class="col-sm-2">
+      <i class="fab fa-html5 fa-7x"></i>
+    </div>
+
+  
+    
+   
+  <div class="col-sm-2">
+      <i class="fab fa-laravel fa-7x"></i>
+    </div>
+
+   
+  <div class="col-sm-2">
+      <i class="fab fa-bootstrap fa-7x" ></i>
+    </div>
+
+    
+  <div class="col-sm-2">
+      <i class="fab fa-js-square fa-7x"></i>
+    </div>
+
+    
+  <div class="col-sm-2">
+      <i class="fas fa-database fa-7x"></i>
+    </div>
+
+    <div class="col-sm-1">
+    </div>
+
+</div>
 <br>
 <br>
      <b> MOTIVACIJA </b>
-
       <br>
       <br>
 
-
-Na odabir i izradu baš ovog projekta nas je motiviralo to što projekt zahtjeva niz funkcionalnosti, kroz čiju implementaciju ćemo morati naučiti kako koristiti brojne tehnologije i mogućnosti koje one nude. S obzirom na pandemiju koronavirusa tvrtke koje dosada i nisu bile okrenute korištenju internetskih stranica za izlaganje svojih proizvoda sada su primorane to činiti, ali to se ne odnosi samo na njih nego i na male obrtnike te ljude koji obično svoje proizvode prodaju na tržnicama. Ta rastuća potreba za stvaranjem korisnički ugodnog i sigurnog okruženja za web trgovinu je također jedan od razloga zašto smo se odlučili izabrati ovaj projekt.
-</p>
+      <p class="text-justify">
+        Na odabir i izradu baš ovog projekta nas je motiviralo to što projekt zahtjeva niz funkcionalnosti, kroz čiju implementaciju ćemo morati naučiti kako koristiti brojne tehnologije i mogućnosti koje one nude. S obzirom na pandemiju koronavirusa tvrtke koje dosada i nisu bile okrenute korištenju internetskih stranica za izlaganje svojih proizvoda sada su primorane to činiti, ali to se ne odnosi samo na njih nego i na male obrtnike te ljude koji obično svoje proizvode prodaju na tržnicama. Ta rastuća potreba za stvaranjem korisnički ugodnog i sigurnog okruženja za web trgovinu je također jedan od razloga zašto smo se odlučili izabrati ovaj projekt.
+      </p>
         
       </div>
     </div>
@@ -58,7 +94,7 @@ Na odabir i izradu baš ovog projekta nas je motiviralo to što projekt zahtjeva
 
       <a class="btn btn-primary btn-lg" href="https://github.com/fpmoz12350/DL-webshop" target="_blank" role="button">Pogledaj code na Git-u</a>
       </div>
-
+      <br>
       
     </div>
 
@@ -82,7 +118,7 @@ Na odabir i izradu baš ovog projekta nas je motiviralo to što projekt zahtjeva
           <div class="card-body">
             <h4 class="card-title">Dario Damjanović</h4>
             <h6 class="card-subtitle mb-2 text-muted">Backend programer</h6>
-            <p class="card-text ">
+            <p class="card-text" >
             - rođen 11.07.1999. godine u Orašju.<br>               
             - pohađao Osnovnu školu fra Ilije Starčevića u Tolisi.<br>
             - srednju školu u Školskom centru fra Martina Nedića, smjer ekonomski tehničar.<br>
@@ -104,7 +140,7 @@ Na odabir i izradu baš ovog projekta nas je motiviralo to što projekt zahtjeva
           <div class="card-body">
             <h4 class="card-title">Lucija Živković</h4>
             <h6 class="card-subtitle mb-2 text-muted">Frontend programer</h6>
-            <p class="card-text">
+            <p class="card-text ">
             
                 - rođena 04.03.1998. godine u Vinkovicima.<br>
 
