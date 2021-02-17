@@ -9,12 +9,14 @@
                 <h6 class="m-0 font-weight-bold text-primary">
                     Izlistanje dopuštenja
                 </h6>
-                <div class="text-right">
-                <a class="btn btn-warning" href="{{ route("permissions-create") }}">
-                        <i class="fas fa-plus-square">
-                        </i>
-                    </a>
-                </div>
+                @if (Auth::user()->hasRole(['administrator']))
+                    <div class="text-right">
+                    <a class="btn btn-warning" href="{{ route("permissions-create") }}">
+                            <i class="fas fa-plus-square">
+                            </i>
+                        </a>
+                    </div>
+                @endif
             </div>
             <div class="card-body">
                 <table class="table table-striped table-bordered">
@@ -48,9 +50,10 @@
                             </td>
                             <td>
                             <a class="btn btn-success" href="{{ route("permissions-show", $permission->id) }}">
-                                    <i class="fas fa-search-plus">
-                                    </i>
-                                </a>
+                                <i class="fas fa-search-plus">
+                                </i>
+                            </a>
+                            @if (Auth::user()->hasRole(['administrator']))
                                 <a class="btn btn-primary" href="{{ route("permissions-edit", $permission->id) }}">
                                     <i class="fas fa-edit">
                                     </i>
@@ -65,6 +68,7 @@
                                         </button>
                                     </form>
                                 </div>
+                            @endif
                             </td>
                         </tr>
                         @endforeach

@@ -15,55 +15,11 @@ class OrderController extends Controller
         return view('admin.webshop.orders.index', compact(['orders']));
     }
 
-    public function create(){
-        $order = new Order;
-        $products = Product::all();
-
-        return view('admin.webshop.orders.create', compact(['products']));
-    }
-
-    public function store(OrderRequest $request)
-    {
-        $product = Product::findOrFail(1);
-        $data = $request->only(['qty']);
-        $data['user_id'] = auth()->user()->id;
-        $data['price'] = $product->price;
-        $data['total'] = $data['qty'] * $data['price'];
-
-        $order = Order::create($data);
-
-        return redirect()->route('orders-index');
-    }
-
     public function show($id){
         $order = Order::findOrFail($id);
+        $order_products = $order->orderItems();
 
-        return view('admin.webshop.orders.show', compact(['order']));
-    }
-
-    public function edit($id){
-        $order = Order::findOrFail($id);
-        $products = Product::all();
-        $order_products = $order->products->pluck('id')->toArray();
-
-        return view('admin.webshop.orders.edit', compact(['order', 'products', 'order_products']));
-    }
-
-    public function update(OrderRequest $request, $id){
-        $order = Order::findOrFail($id);
-        $orders = Order::all();
-        $data = $request->all();
-
-        $product = Product::findOrFail(1);
-        $data = $request->only(['qty', 'delivered']);
-        $data = $this->setDeliveredAttribute($data);
-        $data['user_id'] = auth()->user()->id;
-        $data['price'] = $product->price;
-        $data['total'] = $data['qty'] * $data['price'];
-
-        $order->update($data);
-
-        return redirect()->route('orders-index');
+        return view('admin.webshop.orders.show', compact(['order', 'order_products']));
     }
 
     public function destroy($id){
@@ -71,6 +27,21 @@ class OrderController extends Controller
         $order->delete();
 
         return redirect()->route('orders-index');
+    }
+
+    public function toggleDeliver(Request $request, $orderId)
+    {
+        $order = Order::find($orderId);
+
+        if($request->has('delivered')){
+            $order->delivered=$request->delivered;
+        }else{
+            $order->delivered="0";
+        }
+        
+        $order->save();
+
+        return back();
     }
     
 }

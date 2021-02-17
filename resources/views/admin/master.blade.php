@@ -28,14 +28,7 @@
                     <!-- End of Topbar -->
 
                     <!-- Begin Page Content -->
-                    <div id="content-wrap" style="padding-bottom: 2.5rem;">
-                        <div class="container-fluid">
-                            <!-- Page Heading -->
-                            <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                                <h1 class="h3 mb-0 text-gray-800">Nadzorna ploča</h1>
-                            </div>
-                        </div>
-                    </div>
+                    <br />
                     <!-- /.container-fluid -->
                     @yield("content")
                 <!-- End of Main Content -->

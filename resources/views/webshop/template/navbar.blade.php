@@ -56,7 +56,9 @@
             <a class="nav-link" href="{{ route('shop') }}">Shop</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link mt-1" href="{{ route('cart') }}"><i class="fas fa-shopping-cart"></i></a>
+            <a class="nav-link" href="{{ route('cart.index') }}"><i class="fas fa-shopping-cart"></i>
+              <span> {{ Cart::count() }} </span></a>
+            
           </li>
         </ul>
       </div>

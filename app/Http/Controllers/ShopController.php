@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Actions\Fortify\PasswordValidationRules;
 use Illuminate\Support\Facades\Validator;
+use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Validation\Rule;
 use App\Http\Requests\UserRequest;
 use App\Models\Product;
@@ -13,7 +14,7 @@ use App\Models\User;
 use App\Models\Role;
 use App\Models\Category;
 use App\Models\Comment;
-use Cart;
+use App\Models\Order;
 use Auth;
 
 class ShopController extends Controller
@@ -131,57 +132,10 @@ class ShopController extends Controller
     public function profile($id)
     {
         $user = User::findOrFail($id);
-        $user_orders = $user->orders();
+        $user_orders = Cart::content();
 
         return view('webshop.profile', compact('user', 'user_orders'));
     }
-
-    public function showCart()
-    {
-        $subtotal = str_replace(',', '', Cart::subtotal());
-        $tax_percent = config('cart.tax');
-        $tax = ($subtotal * $tax_percent) / 100;
-        $user = Auth::user();
-        $datum = date('d.m.Y H:i:s');
-
-        return view('webshop.cart')
-        ->with('cartItems', Cart::content())
-        ->with('subtotal', $subtotal)
-        ->with('tax_percent', $tax_percent)
-        ->with('tax', $tax)
-        ->with('total', $subtotal + $tax)
-        ->with('user', $user)
-        ->with('datum', $datum);
-    }
-   
-    public function addToCart(){
-        /* session()->forget('categories');
-        session()->forget('selectedCategory');
-
-        $product = Product::findOrFail(request()->product_id);
-        if($product->published){
-            $quantity = request()->quantity;
-            Cart::add($product->id, $product->name, $quantity, $product->price, 0);
-
-            return __('web_shop.add_to_cart_success', ['product_name' => $product->name, 'quantity' => $quantity]); 
-        }*/
-
-        /* Cart::add([
-            ['id' => '1', 'name' => 'Product 1', 'qty' => 1, 'price' => 10.00, 'weight' => 550],
-          ]);
-
-        Cart::store('id'); */
-
-        dd(Cart::content());
-        
-        return redirect()->route('product', 1);
-        
-    }
-
-    public function cartCounter()
-    {
-        return Cart::count();
-    } 
 
     public function profileUpdate(UserRequest $request, User $user)
     {
@@ -249,4 +203,14 @@ class ShopController extends Controller
         ->with('selectedCategory', $selectedCategory)
         ->with('descendants', implode(', ', $descendants));
     }
+
+    public function storeOrder()
+    {
+        $id = auth()->user()->id;
+        Order::createOrder();
+
+        return redirect()->route('profile', $id);
+
+    }
+
 }
